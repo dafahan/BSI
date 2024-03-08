@@ -8,14 +8,23 @@
     <link
   href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap"
   rel="stylesheet" />
-  <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap">
   
+  <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
 <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>BSI</title>
+    <style>
+      input:focus{
+        outline: none;
+      }
+      input::placeholder{
+        color: black;
+        font-weight: 400;
+      }
+    </style>
   </head>
   <body>
    <main>
@@ -176,104 +185,194 @@ data-te-sidenav-position="fixed">
 </nav>
 <!-- Sidenav -->
 
-
-  <div class="flex  w-[100vw] h-[70vh] items-start mt-10 justify-center ">
-       <div class="flex flex-col w-[60%] sm:w-[40%] h-[50%]">
-        <div class="flex  flex-col w-[100%] h-[50%]items-center justify-center sm:flex-row  justify-between mb-7" >
-          
-          <a href="menu1.html" class="flex flex-col items-center sm:w-[30%] aspect-square  rounded-xl border-[5px] border-[#01A39E] p-2">
-              <div class="flex flex-col items-center w-[100%] h-[60%] pt-2"><svg width="60" height="60" viewBox="0 0 44 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M32.2323 28C32.7751 28 33.2956 27.7592 33.6794 27.3305C34.0632 26.9019 34.2788 26.3205 34.2788 25.7143C34.2788 25.1081 34.0632 24.5267 33.6794 24.0981C33.2956 23.6694 32.7751 23.4286 32.2323 23.4286C31.6896 23.4286 31.169 23.6694 30.7852 24.0981C30.4014 24.5267 30.1858 25.1081 30.1858 25.7143C30.1858 26.3205 30.4014 26.9019 30.7852 27.3305C31.169 27.7592 31.6896 28 32.2323 28ZM32.2323 37.1429C32.7751 37.1429 33.2956 36.9021 33.6794 36.4734C34.0632 36.0448 34.2788 35.4634 34.2788 34.8572C34.2788 34.251 34.0632 33.6696 33.6794 33.2409C33.2956 32.8123 32.7751 32.5714 32.2323 32.5714C31.6896 32.5714 31.169 32.8123 30.7852 33.2409C30.4014 33.6696 30.1858 34.251 30.1858 34.8572C30.1858 35.4634 30.4014 36.0448 30.7852 36.4734C31.169 36.9021 31.6896 37.1429 32.2323 37.1429ZM24.0463 25.7143C24.0463 26.3205 23.8307 26.9019 23.4469 27.3305C23.0631 27.7592 22.5425 28 21.9998 28C21.457 28 20.9365 27.7592 20.5527 27.3305C20.1689 26.9019 19.9533 26.3205 19.9533 25.7143C19.9533 25.1081 20.1689 24.5267 20.5527 24.0981C20.9365 23.6694 21.457 23.4286 21.9998 23.4286C22.5425 23.4286 23.0631 23.6694 23.4469 24.0981C23.8307 24.5267 24.0463 25.1081 24.0463 25.7143ZM24.0463 34.8572C24.0463 35.4634 23.8307 36.0448 23.4469 36.4734C23.0631 36.9021 22.5425 37.1429 21.9998 37.1429C21.457 37.1429 20.9365 36.9021 20.5527 36.4734C20.1689 36.0448 19.9533 35.4634 19.9533 34.8572C19.9533 34.251 20.1689 33.6696 20.5527 33.2409C20.9365 32.8123 21.457 32.5714 21.9998 32.5714C22.5425 32.5714 23.0631 32.8123 23.4469 33.2409C23.8307 33.6696 24.0463 34.251 24.0463 34.8572ZM11.7672 28C12.31 28 12.8305 27.7592 13.2143 27.3305C13.5981 26.9019 13.8137 26.3205 13.8137 25.7143C13.8137 25.1081 13.5981 24.5267 13.2143 24.0981C12.8305 23.6694 12.31 23.4286 11.7672 23.4286C11.2244 23.4286 10.7039 23.6694 10.3201 24.0981C9.93632 24.5267 9.7207 25.1081 9.7207 25.7143C9.7207 26.3205 9.93632 26.9019 10.3201 27.3305C10.7039 27.7592 11.2244 28 11.7672 28ZM11.7672 37.1429C12.31 37.1429 12.8305 36.9021 13.2143 36.4734C13.5981 36.0448 13.8137 35.4634 13.8137 34.8572C13.8137 34.251 13.5981 33.6696 13.2143 33.2409C12.8305 32.8123 12.31 32.5714 11.7672 32.5714C11.2244 32.5714 10.7039 32.8123 10.3201 33.2409C9.93632 33.6696 9.7207 34.251 9.7207 34.8572C9.7207 35.4634 9.93632 36.0448 10.3201 36.4734C10.7039 36.9021 11.2244 37.1429 11.7672 37.1429Z" fill="#F8AE3E"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7674 0C12.1745 0 12.5649 0.180612 12.8528 0.502103C13.1406 0.823594 13.3023 1.25963 13.3023 1.71429V3.45829C14.6571 3.42857 16.149 3.42857 17.7903 3.42857H26.2076C27.851 3.42857 29.3429 3.42857 30.6977 3.45829V1.71429C30.6977 1.25963 30.8594 0.823594 31.1472 0.502103C31.4351 0.180612 31.8255 0 32.2326 0C32.6396 0 33.03 0.180612 33.3179 0.502103C33.6057 0.823594 33.7674 1.25963 33.7674 1.71429V3.60457C34.2995 3.65029 34.803 3.70743 35.2798 3.77829C37.6783 4.13943 39.6205 4.89829 41.1533 6.608C42.6841 8.32 43.3635 10.4891 43.6869 13.168C44 15.7737 44 19.0994 44 23.3006V28.128C44 32.3291 44 35.6571 43.6869 38.2606C43.3635 40.9394 42.6841 43.1086 41.1533 44.8206C39.6205 46.5303 37.6783 47.2891 35.2798 47.6503C32.9468 48 29.9691 48 26.2076 48H17.7924C14.0309 48 11.0512 48 8.72019 47.6503C6.32167 47.2891 4.37954 46.5303 2.8467 44.8206C1.31591 43.1086 0.636465 40.9394 0.313116 38.2606C0 35.6549 0 32.3291 0 28.128V23.3006C0 19.0994 0 15.7714 0.313116 13.168C0.636465 10.4891 1.31591 8.32 2.8467 6.608C4.37954 4.89829 6.32167 4.13943 8.72019 3.77829C9.19702 3.70743 9.70251 3.65029 10.2326 3.60457V1.71429C10.2326 1.25963 10.3943 0.823594 10.6821 0.502103C10.97 0.180612 11.3604 0 11.7674 0ZM9.12744 7.17714C7.0707 7.48571 5.88372 8.06629 5.01805 9.03314C4.15237 10 3.63256 11.3257 3.35628 13.6251C3.30921 14.0137 3.27033 14.4251 3.23758 14.8571H40.7624C40.7297 14.4229 40.6908 14.0137 40.6437 13.6229C40.3674 11.3257 39.8476 10 38.982 9.03314C38.1163 8.06629 36.9293 7.48571 34.8705 7.17714C32.7687 6.86171 29.9957 6.85714 26.093 6.85714H17.907C14.0043 6.85714 11.2333 6.86171 9.12744 7.17714ZM3.06977 23.4286C3.06977 21.4766 3.06977 19.7783 3.09637 18.2857H40.9036C40.9302 19.7783 40.9302 21.4766 40.9302 23.4286V28C40.9302 32.3589 40.9261 35.456 40.6437 37.8057C40.3674 40.1029 39.8476 41.4286 38.982 42.3954C38.1163 43.3623 36.9293 43.9429 34.8705 44.2514C32.7687 44.5669 29.9957 44.5714 26.093 44.5714H17.907C14.0043 44.5714 11.2333 44.5669 9.12744 44.2514C7.0707 43.9429 5.88372 43.3623 5.01805 42.3954C4.15237 41.4286 3.63256 40.1029 3.35628 37.8034C3.07386 35.456 3.06977 32.3589 3.06977 28V23.4286Z" fill="#F8AE3E"/>
-                </svg></div>
-                <div class="flex w-[80%] h-[40%] ">
-                  <h1 class="text-center flex text-black leading-[17px] text-[0.8rem]" style="font-family: 'Inter';font-weight: bold;">Menata Anggaran 
-                    Keuangan</h1>
-                </div>
-                
-              </a>
-      
-          <a href="menu2.html" class="flex flex-col items-center sm:w-[30%] aspect-square  rounded-xl border-[5px] border-[#01A39E] p-2">
-            <div class="flex flex-col items-center w-[100%] h-[60%] pt-2"><svg width="60" height="60" viewBox="0 0 45 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M22.5 0C22.873 0 23.2306 0.16462 23.4944 0.457646C23.7581 0.750671 23.9062 1.1481 23.9062 1.5625V3.16875C35.5078 3.86875 45 13.1875 45 25C45 25 45 26.5625 43.5938 26.5625C43.1747 26.5625 42.6037 26.1094 42.6037 26.1094L42.5925 26.0969L42.5222 26.025C42.0393 25.559 41.5165 25.1466 40.9613 24.7938C39.626 23.9246 38.1099 23.4572 36.5625 23.4375C34.7681 23.4375 33.2494 24.1031 32.1637 24.7938C31.6085 25.1466 31.0857 25.559 30.6028 26.025L30.5325 26.0969L30.5241 26.1063C30.5241 26.1063 29.9503 26.5625 29.5312 26.5625C29.1122 26.5625 28.5413 26.1094 28.5413 26.1094L28.53 26.0969L28.4597 26.025C27.9768 25.559 27.454 25.1466 26.8988 24.7938C25.972 24.1988 24.9595 23.7865 23.9062 23.575V42.1875V42.3094L23.8922 42.5687C23.8167 43.7662 23.532 44.9359 23.0541 46.0125C22.5676 47.122 21.8277 48.0702 20.9081 48.7625C19.8563 49.5344 18.5259 50 16.875 50C15.2241 50 13.8909 49.5375 12.8419 48.7625C11.9222 48.0704 11.1822 47.1222 10.6959 46.0125C10.1838 44.8573 9.89445 43.596 9.84656 42.3094V42.2313L9.84375 42.2031V42.1937C9.84375 42.1937 9.84375 42.1875 11.25 42.1875H9.84375V40.625C9.84375 40.2106 9.99191 39.8132 10.2556 39.5201C10.5194 39.2271 10.877 39.0625 11.25 39.0625C11.623 39.0625 11.9806 39.2271 12.2444 39.5201C12.5081 39.8132 12.6562 40.2106 12.6562 40.625V42.2062L12.6647 42.3438C12.7139 43.1323 12.9001 43.9027 13.2131 44.6125C13.4803 45.2094 13.86 45.7594 14.4028 46.1594C14.9372 46.5563 15.7134 46.875 16.875 46.875C18.0366 46.875 18.8128 46.5563 19.3472 46.1594C19.89 45.7594 20.2697 45.2094 20.5397 44.6125C20.8705 43.8609 21.0591 43.042 21.0938 42.2062V23.575C20.0405 23.7865 19.028 24.1988 18.1012 24.7938C17.5187 25.1648 16.9721 25.6015 16.47 26.0969L16.4587 26.1094C16.4587 26.1094 15.8906 26.5625 15.4688 26.5625C15.0497 26.5625 14.4787 26.1094 14.4787 26.1094L14.4675 26.0969C13.9654 25.6015 13.4188 25.1648 12.8363 24.7938C11.501 23.9246 9.98491 23.4572 8.4375 23.4375C6.64313 23.4375 5.12719 24.1031 4.03875 24.7938C3.45623 25.1648 2.90961 25.6015 2.4075 26.0969L2.39625 26.1094C2.39625 26.1094 1.82812 26.5625 1.40625 26.5625C0 26.5625 0 25 0 25C0 13.1875 9.49219 3.86875 21.0938 3.16875V1.5625C21.0938 1.1481 21.2419 0.750671 21.5056 0.457646C21.7694 0.16462 22.127 0 22.5 0Z" fill="#1438F9"/>
-              </svg>   </div>
-              <div class="flex w-[80%] h-[40%] ">
-                <h1 class="text-center flex text-black leading-[17px] text-[0.8rem]" style="font-family: 'Inter';font-weight: bold;">Mengelola Risiko & 
-                  Asuransi</h1>
-              </div>
+<!-- container -->
+  <div class="flex  w-[98vw]  items-start mt-5 justify-center pb-6">
+       <div class="flex w-[80%] flex-col justify-center mb-6">
+        <div class="title "><h1 class="text-[#F8AE3E] text-[1.6rem] text-center" style="font-family: 'Inter';font-weight: bold ;">Mengelola Asuransi Syariah</h1></div>
+        <div class="p-7 border-[3px] border-[#01A39E] rounded-xl mt-6 mb-6">
+          <p  class="mb-3" style="font-family: 'IstokWeb', sans-serif;">Dibawah ini adalah <strong>Financial Calculator</strong> yang dapat membantu anda menghitung jumlah manfaat asuransi syariah agar optimal bagi keluarga yang ditinggalkan. Harap isi sesuai data yang  dimiliki untuk mendapatkan hasil yang akurat. Untuk menjaga nilai uang, ilustrasi hasil investasi yang diharapkan harus diatas tingkat inflasi.</p>
+          <div class="flex flex-col mt-5">
+            <form action="print2.html" method="get">
+            <div class="title-form mt-5"><h2 class="text-[#01A39E] text-[1.45rem] " style="font-family: 'IstokWeb', sans-serif;font-weight: bold;">Data Diri</h2></div>
+            <div class="form-body">
               
-            </a>
-        <a href="menu3.html" class="flex flex-col items-center sm:w-[30%] aspect-square  rounded-xl border-[5px] border-[#01A39E] p-2">
-          <div class="flex flex-col items-center w-[100%] h-[60%] pt-2"><svg width="60" height="60" viewBox="0 0 45 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M45 13.5657C45 28.8818 24.1493 41.2791 23.2614 41.7911C23.0273 41.9282 22.7657 42 22.5 42C22.2343 42 21.9726 41.9282 21.7386 41.7911C20.8507 41.2791 0 28.8818 0 13.5657C0.00372202 9.9691 1.31717 6.52096 3.6522 3.97778C5.98723 1.43459 9.15313 0.00405382 12.4554 0C16.6038 0 20.2359 1.94296 22.5 5.22717C24.7641 1.94296 28.3962 0 32.5446 0C35.8469 0.00405382 39.0128 1.43459 41.3478 3.97778C43.6828 6.52096 44.9963 9.9691 45 13.5657Z" fill="#F83E3E"/>
-            </svg></div>
-            <div class="flex w-[80%] h-[40%] ">
-              <h1 class="text-center flex text-black leading-[17px] text-[0.8rem]" style="font-family: 'Inter';font-weight: bold;">Perencanaan Dana Pernikahan</h1>
+              <h2 class="text-black text-[1.15rem] " style="font-family: 'IstokWeb', sans-serif;font-weight: bold;">Nama Lengkap</h2>
+              <input type="text" class="rounded-lg bg-[#F8AE3E] w-full h-[6vh] mt-2 flex justify-start items-center px-4 " style="font-weight: 550;" name="1">
+              <h2 class="text-black text-[1.15rem] mt-2" style="font-family: 'IstokWeb', sans-serif;font-weight: bold;">Usia</h2>
+              <input type="text" placeholder="isikan angka saja" class="rounded-lg bg-[#F8AE3E] w-full h-[6vh] mt-2 flex justify-start items-center px-4 placeholder:text-black placeholder:opacity-50 placeholder:italic" style="font-weight: 550;" name="2">
+              
             </div>
-            
-          </a>
-  
-      </div>
-         <div class="flex  flex-col w-[100%] h-[50%]items-center justify-center sm:flex-row justify-between mb-7" >
-          <a href="menu4.html" class="flex flex-col items-center sm:w-[30%] aspect-square  rounded-xl border-[5px] border-[#01A39E] p-2">
-                <div class="flex flex-col items-center w-[100%] h-[60%] pt-2"><svg width="60" height="60" viewBox="0 0 50 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M25.5793 6.95892C25.4242 6.81587 25.2179 6.73602 25.0032 6.73602C24.7886 6.73602 24.5823 6.81587 24.4272 6.95892L5.25016 24.6244C5.16872 24.6996 5.10393 24.7898 5.0597 24.8898C5.01548 24.9898 4.99274 25.0973 4.99287 25.206L4.98975 41.7857C4.98975 42.6382 5.34093 43.4557 5.96605 44.0585C6.59117 44.6613 7.43902 45 8.32307 45H18.3335C18.7755 45 19.1994 44.8307 19.512 44.5293C19.8245 44.2279 20.0001 43.8191 20.0001 43.3928V29.7321C20.0001 29.519 20.0879 29.3146 20.2442 29.1639C20.4005 29.0132 20.6124 28.9286 20.8335 28.9286H29.1668C29.3878 28.9286 29.5997 29.0132 29.756 29.1639C29.9123 29.3146 30.0001 29.519 30.0001 29.7321V43.3928C30.0001 43.8191 30.1757 44.2279 30.4883 44.5293C30.8008 44.8307 31.2247 45 31.6668 45H41.673C42.557 45 43.4049 44.6613 44.03 44.0585C44.6551 43.4557 45.0063 42.6382 45.0063 41.7857V25.206C45.0064 25.0973 44.9837 24.9898 44.9395 24.8898C44.8953 24.7898 44.8305 24.6996 44.749 24.6244L25.5793 6.95892Z" fill="#FF8577"/>
-                  <path d="M49.4697 21.3097L41.6781 14.1218V3.21429C41.6781 2.78804 41.5025 2.37926 41.1899 2.07786C40.8773 1.77647 40.4534 1.60714 40.0114 1.60714H35.0114C34.5694 1.60714 34.1455 1.77647 33.8329 2.07786C33.5203 2.37926 33.3447 2.78804 33.3447 3.21429V6.42857L27.3114 0.865848C26.7468 0.315402 25.9073 0 25 0C24.0958 0 23.2583 0.315402 22.6937 0.866853L0.537538 21.3077C-0.110377 21.9104 -0.191627 22.9018 0.397955 23.5547C0.546008 23.7195 0.727289 23.8535 0.930765 23.9486C1.13424 24.0437 1.35566 24.0979 1.58154 24.1079C1.80742 24.1178 2.03303 24.0833 2.24466 24.0066C2.45629 23.9298 2.6495 23.8122 2.81253 23.6612L24.4271 3.74464C24.5821 3.60159 24.7885 3.52175 25.0031 3.52175C25.2177 3.52175 25.4241 3.60159 25.5791 3.74464L47.1958 23.6612C47.5142 23.9556 47.9407 24.1163 48.3818 24.108C48.8229 24.0997 49.2426 23.9232 49.5489 23.617C50.1885 22.9781 50.1353 21.9234 49.4697 21.3097Z" fill="#FF8577"/>
-                  </svg></div>
-                  <div class="flex w-[80%] h-[40%] ">
-                    <h1 class="text-center flex text-black leading-[17px] text-[0.8rem]" style="font-family: 'Inter';font-weight: bold;">Pernecanaan Pembelian Rumah</h1>
-                  </div>
-                  
-                </a>
-            <a href="menu5.html" class="flex flex-col items-center sm:w-[30%] aspect-square  rounded-xl border-[5px] border-[#01A39E] p-2">
-              <div class="flex flex-col items-center w-[100%] h-[60%] pt-2"><svg width="60" height="60" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M40.168 22.419C40.862 23.8634 41.3783 25.3681 41.7168 26.9329C42.0553 28.4977 42.2331 30.1127 42.25 31.7778V34.8773L26 44.537L9.75 34.8773C9.75 33.6736 9.75846 32.5502 9.77539 31.5069C9.79232 30.4637 9.86849 29.4506 10.0039 28.4676C10.1393 27.4846 10.3424 26.5015 10.6133 25.5185C10.8841 24.5355 11.2904 23.5023 11.832 22.419L6.5 19.2593V36.9236C6.99089 37.1242 7.43099 37.4051 7.82031 37.7662C8.20964 38.1273 8.55664 38.5486 8.86133 39.0301C9.16602 39.5116 9.38607 40.0332 9.52148 40.5949C9.6569 41.1566 9.73307 41.7485 9.75 42.3704V52H0V42.3704C0 41.7685 0.0761719 41.1867 0.228516 40.625C0.380859 40.0633 0.600911 39.5316 0.888672 39.0301C1.17643 38.5285 1.51497 38.1073 1.9043 37.7662C2.29362 37.4252 2.74219 37.1443 3.25 36.9236V17.3333L0 15.4074L26 0L52 15.4074L40.168 22.419ZM6.5 42.3704C6.5 41.8488 6.33919 41.3974 6.01758 41.0162C5.69596 40.635 5.3151 40.4444 4.875 40.4444C4.4349 40.4444 4.05404 40.635 3.73242 41.0162C3.41081 41.3974 3.25 41.8488 3.25 42.3704V48.1481H6.5V42.3704ZM7.26172 15.4074L26 26.5116L44.7383 15.4074L26 4.30324L7.26172 15.4074ZM39 32.5C39 30.9552 38.873 29.5208 38.6191 28.1968C38.3652 26.8727 37.9167 25.5185 37.2734 24.1343L26 30.8148L14.7266 24.1343C14.168 25.2978 13.7448 26.5216 13.457 27.8056C13.1693 29.0895 13.0169 30.4136 13 31.7778V32.5L26 40.2037L39 32.5Z" fill="black"/>
-                </svg></div>
-                <div class="flex w-[80%] h-[40%] items-center">
-                  <h1 class="text-center flex text-black leading-[17px] text-[0.8rem]" style="font-family: 'Inter';font-weight: bold;">Dana Pendidikan Anak</h1>
-                </div>
-                
-              </a>
-          <a href="menu6.html" class="flex flex-col items-center sm:w-[30%] aspect-square  rounded-xl border-[5px] border-[#01A39E] p-2">
-            <div class="flex flex-col items-center w-[100%] h-[60%] pt-2"><svg width="60" height="60" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6.42857 6.29823H38.5714C38.9469 6.29803 39.322 6.32471 39.6944 6.37811C39.5682 5.38556 39.2638 4.43192 38.7996 3.57469C38.3354 2.71746 37.721 1.9744 36.9935 1.39031C36.266 0.806213 35.4404 0.393183 34.5665 0.17612C33.6927 -0.0409433 32.7886 -0.0575433 31.9088 0.12732L5.47433 5.18218H5.4442C3.7849 5.53758 2.30933 6.58908 1.31886 8.12194C2.81109 6.93312 4.59737 6.29558 6.42857 6.29823ZM38.5714 8.99835H6.42857C4.72418 9.00044 3.09013 9.75971 1.88494 11.1096C0.679753 12.4595 0.00186113 14.2897 0 16.1987V37.7997C0.00186113 39.7087 0.679753 41.5389 1.88494 42.8888C3.09013 44.2386 4.72418 44.9979 6.42857 45H38.5714C40.2758 44.9979 41.9099 44.2386 43.1151 42.8888C44.3202 41.5389 44.9981 39.7087 45 37.7997V16.1987C44.9981 14.2897 44.3202 12.4595 43.1151 11.1096C41.9099 9.75971 40.2758 9.00044 38.5714 8.99835ZM33.8002 30.5993C33.1645 30.5993 32.543 30.3882 32.0145 29.9926C31.4859 29.597 31.0739 29.0347 30.8306 28.3769C30.5873 27.7191 30.5237 26.9952 30.6477 26.2968C30.7717 25.5985 31.0779 24.957 31.5274 24.4535C31.9769 23.95 32.5496 23.6071 33.1731 23.4682C33.7967 23.3293 34.4429 23.4006 35.0303 23.6731C35.6176 23.9455 36.1196 24.407 36.4728 24.999C36.826 25.5911 37.0145 26.2871 37.0145 26.9992C37.0145 27.954 36.6759 28.8697 36.0731 29.5449C35.4703 30.22 34.6527 30.5993 33.8002 30.5993Z" fill="#F8AE3E"/>
-              <path d="M0.050293 23.7928V12.5985C0.050293 10.1605 1.25565 6.07322 5.43924 5.1878C8.99003 4.44189 12.5057 4.44189 12.5057 4.44189C12.5057 4.44189 14.8159 6.24198 12.9074 6.24198C10.999 6.24198 11.0492 8.99835 12.9074 8.99835C14.7657 8.99835 12.9074 11.6422 12.9074 11.6422L5.42418 21.1489L0.050293 23.7928Z" fill="#01A39E"/>
-              </svg></div>
-              <div class="flex w-[80%] h-[40%] items-center justify-center">
-                <h1 class="text-center flex text-black leading-[17px] text-[0.8rem]" style="font-family: 'Inter';font-weight: bold;">Dana Hari Tua</h1>
-              </div>
+            <div class="title-form mt-5"><h2 class="text-[#01A39E] text-[1.45rem] " style="font-family: 'IstokWeb', sans-serif;font-weight: bold;">Membayar Lunas Hutang</h2></div>
+            <div class="form-body">
               
-            </a>
-    
+              <h2 class="text-black text-[1.15rem] " style="font-family: 'IstokWeb', sans-serif;font-weight: bold;">Sisa Utang PPR Syariah</h2>
+              <input type="text" placeholder="0" class="rounded-lg bg-[#F8AE3E] w-full h-[6vh] mt-2 flex justify-start items-center px-4 placeholder:text-black placeholder:opacity-50 placeholder:italic" style="font-weight: 550;" name="3">
+              
+              <h2 class="text-black text-[1.15rem] " style="font-family: 'IstokWeb', sans-serif;font-weight: bold;">Sisa Utang PPM Syariah</h2>
+              <input type="text" placeholder="0" class="rounded-lg bg-[#F8AE3E] w-full h-[6vh] mt-2 flex justify-start items-center px-4 placeholder:text-black placeholder:opacity-50 placeholder:italic" style="font-weight: 550;" name="4">
+
+              <h2 class="text-black text-[1.15rem] " style="font-family: 'IstokWeb', sans-serif;font-weight: bold;">Sisa Utang Kredit Bisnis</h2>
+              <input type="text" placeholder="0" class="rounded-lg bg-[#F8AE3E] w-full h-[6vh] mt-2 flex justify-start items-center px-4 placeholder:text-black placeholder:opacity-50 placeholder:italic" style="font-weight: 550;" name="5">
+
+              <h2 class="text-black text-[1.15rem] " style="font-family: 'IstokWeb', sans-serif;font-weight: bold;">Sisa Saldo Kartu Kredit</h2>
+              <input type="text" placeholder="0" class="rounded-lg bg-[#F8AE3E] w-full h-[6vh] mt-2 flex justify-start items-center px-4 placeholder:text-black placeholder:opacity-50 placeholder:italic" style="font-weight: 550;" name="6">
+
+              <h2 class="text-black text-[1.15rem] " style="font-family: 'IstokWeb', sans-serif;font-weight: bold;">Sisa Utang Lainnya</h2>
+              <input type="text" placeholder="0" class="rounded-lg bg-[#F8AE3E] w-full h-[6vh] mt-2 flex justify-start items-center px-4 placeholder:text-black placeholder:opacity-50 placeholder:italic" style="font-weight: 550;" name="7">
+
+              <div class="rounded-lg bg-[white] border-2 border-[#01A39E] w-full h-[6vh] mt-5 flex justify-between  items-center px-4 " style="font-weight: 550;" >
+                <h1>Total Kewajiban :</h1>
+                <h1>Rp.<span id="total" >0</span>,-</h1>
+                <input type="hidden" id="totalHidden" name="total">
+              </div>
+
+            </div>
+
+            <div class="title-form mt-5"><h2 class="text-[#01A39E] text-[1.45rem] " style="font-family: 'IstokWeb', sans-serif;font-weight: bold;">Pengganti Pemasukan</h2></div>
+            <div class="form-body">
+              
+              <h2 class="text-black text-[1.15rem] " style="font-family: 'IstokWeb', sans-serif;font-weight: bold;">Pemasukan per Tahun</h2>
+              <input type="text" placeholder="Rp." class="rounded-lg bg-[#F8AE3E] w-full h-[6vh] mt-2 flex justify-start items-center px-4 placeholder:text-black placeholder:opacity-50 placeholder:italic" style="font-weight: 550;" name="8">
+
+              
+              <h2 class="text-black text-[1.15rem] " style="font-family: 'IstokWeb', sans-serif;font-weight: bold;">Masa Perlindungan untuk Keluarga</h2>
+              <input type="text" placeholder="... tahun" class="rounded-lg bg-[#F8AE3E] w-full h-[6vh] mt-2 flex justify-start items-center px-4 placeholder:text-black placeholder:opacity-50 placeholder:italic" style="font-weight: 550;" name="9">
+
+              <h2 class="text-black text-[1.15rem] " style="font-family: 'IstokWeb', sans-serif;font-weight: bold;">Harapan Hasil Investasi per Tahun (%)</h2>
+              <input type="text" placeholder="% " class="rounded-lg bg-[#F8AE3E] w-full h-[6vh] mt-2 flex justify-start items-center px-4 placeholder:text-black placeholder:opacity-50 placeholder:italic" style="font-weight: 550;" name="10">
+
+              <h2 class="text-black text-[1.15rem] " style="font-family: 'IstokWeb', sans-serif;font-weight: bold;">Perkiraan Hasil Inflasi per Tahun (%)</h2>
+              <input type="text" placeholder="% " class="rounded-lg bg-[#F8AE3E] w-full h-[6vh] mt-2 flex justify-start items-center px-4 placeholder:text-black placeholder:opacity-50 placeholder:italic" style="font-weight: 550;" name="11">
+
+
+              <div class="rounded-lg bg-[white] border-2 border-[#01A39E] w-full h-[6vh] mt-5 flex justify-between  items-center px-4 " style="font-weight: 550;" >
+                <h1>Dana yang dibutuhkan :</h1>
+                <h1>Rp.<span id="dana" >0</span>,-</h1>
+                <input type="hidden" id="danaHidden" name="dana">
+              </div>
+
+              <h2 class="text-black text-[1.15rem] mt-5" style="font-family: 'IstokWeb', sans-serif;font-weight: bold;">Niat Wakaf Uang</h2>
+              <input type="text" placeholder="0" class="rounded-lg bg-[#F8AE3E] w-full h-[6vh] mt-2 flex justify-start items-center px-4 placeholder:text-black placeholder:opacity-50 placeholder:italic" style="font-weight: 550;" name="12">
+
+              <h2 class="text-black text-[1.15rem] " style="font-family: 'IstokWeb', sans-serif;font-weight: bold;">Perkiraan Tagihan-tagihan Akhir</h2>
+              <input type="text" placeholder="0" class="rounded-lg bg-[#F8AE3E] w-full h-[6vh] mt-2 flex justify-start items-center px-4 placeholder:text-black placeholder:opacity-50 placeholder:italic" style="font-weight: 550;" name="13">
+
+              <h2 class="text-black text-[1.15rem] " style="font-family: 'IstokWeb', sans-serif;font-weight: bold;">Manfaat Asuransi yang Sudah Dimiliki</h2>
+              <input type="text" placeholder="0" class="rounded-lg bg-[#F8AE3E] w-full h-[6vh] mt-2 flex justify-start items-center px-4 placeholder:text-black placeholder:opacity-50 placeholder:italic" style="font-weight: 550;" name="14">
+
+
+              <div class="rounded-lg bg-[white] border-2 border-[#01A39E] w-full h-[6vh] mt-5 flex justify-between  items-center px-4 " style="font-weight: 550;" >
+                <h1>Kebutuhan Asuransi :</h1>
+                <h1>Rp.<span id="asuransi" >0</span>,-</h1>
+                <input type="hidden" id="asuransiHidden" name="asuransi">
+              </div>
+
+
+              <div class="rounded-lg bg-[white]  w-full h-[6vh] mt-5 flex justify-center  items-center px-4 " style="font-weight: 550;">
+                <button class="flex underline  w-[30%] justify-center h-full items-center rounded-xl bg-[#01A39E] text-black" style="font-family: 'IstokWeb', sans-serif;font-weight: bold;font-size: 20px; ">CETAK</button>
+              </div>
+
+            </div>
+
+          </form>
+          </div>
         </div>
-        
-        <div class="flex  flex-col  w-[100%] h-[50%]items-center justify-center sm:flex-row " >
-          <a href="menu7.html" class="flex flex-col items-center sm:w-[30%] aspect-square  rounded-xl border-[5px] border-[#01A39E] p-2">
-            <div class="flex flex-col items-center w-[100%] h-[60%] pt-2"> <img class="d-flex object-contain w-[60px]" src="./img/menu7.png"> </div>
-              <div class="flex w-[80%] h-[40%] items-center justify-center">
-                <h1 class="text-center flex text-black leading-[17px] text-[0.8rem]" style="font-family: 'Inter';font-weight: bold;">Perencanaan Ibadah Haji</h1>
-              </div>
-              
-            </a>
-        
-          <div class="flex sm:w-[6%]"></div>
-          <a href="menu8.html" class="flex flex-col items-center sm:w-[30%] aspect-square  rounded-xl border-[5px] border-[#01A39E] p-2">
-            <div class="flex flex-col items-center w-[100%] h-[60%] pt-2"><svg width="60" height="60" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M43.6591 25.3124H24.0304L37.1027 39.2019C37.6024 39.7328 38.4246 39.7759 38.9383 39.2617C42.1396 36.0572 44.3416 31.7373 44.9876 26.8813C45.0985 26.0499 44.4491 25.3124 43.6591 25.3124ZM42.3497 19.6171C41.6681 9.11753 33.7716 0.727405 23.8898 0.00317817C23.1354 -0.0521935 22.5001 0.623693 22.5001 1.42702V21.0936H41.0104C41.7665 21.0936 42.4018 20.4186 42.3497 19.6171ZM18.5295 25.3124V4.45664C18.5295 3.61728 17.8355 2.92733 17.0538 3.04511C7.19602 4.5252 -0.338972 13.6756 0.0117616 24.6418C0.372422 35.9043 9.49895 45.1399 20.1037 44.9984C24.2728 44.943 28.1251 43.5157 31.2925 41.1285C31.9459 40.6363 31.989 39.6142 31.4223 39.0121L18.5295 25.3124Z" fill="#426B1F"/>
-              </svg></div>
-              <div class="flex w-[80%] h-[40%] items-center justify-center">
-                <h1 class="text-center flex text-black leading-[17px] text-[0.8rem]" style="font-family: 'Inter';font-weight: bold;">Laporan Keuangan</h1>
-              </div>
-              
-            </a>
-      </div>
-      </div>
+       </div>
+       
     </div>
    </main>
+
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </body>
   
 <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+<script>
+ function rupiah(number) {
+    // Convert the number to a string and remove any non-digit characters
+    const cleanNumber = String(number).replace(/[^\d]/g, '');
+
+    // Convert the string back to a number
+    const numericValue = parseFloat(cleanNumber);
+
+    // Check if the numericValue is a valid number
+    if (isNaN(numericValue)) {
+        return 'NaN';
+    }
+
+    // Use toLocaleString to format the number with commas
+    const formattedNumber = numericValue.toLocaleString('id-ID');
+
+    // Return the formatted number
+    return formattedNumber;
+}
+    function sumVal(data=[],Lid){
+        let input = data;
+        let inputElements = {};
+
+        for (let i = 0; i < input.length; i++) {
+          inputElements[`input${input[i]}`] = document.getElementsByName(`${input[i]}`)[0];
+          inputElements[`input${input[i]}`].addEventListener('input', checkInputs);
+        }
+        function checkInputs() {
+
+        let inputValue = {};
+        for(let i=0;i<input.length;i++){
+            inputValue[`input${input[i]}`] = inputElements[`input${input[i]}`].value;
+        }
+
+        let sum = 0;
+
+        if(Lid=="dana"){
+          //8,totalHidden,2
+            let umur =parseInt( $('[name="2"]').val());
+            if(umur>=60){
+              sum += 10*parseInt( $('[name="8"]').val());
+            }else if(umur>=50){
+              sum += 15*parseInt( $('[name="8"]').val());
+            }else if(umur>=30){
+              sum += 25*parseInt( $('[name="8"]').val());
+            }else if(umur>=20){
+              sum += 20*parseInt( $('[name="8"]').val());
+            }
+            sum+=parseInt( $('#totalHidden').val());
+           
+
+           document.getElementById(Lid).innerHTML = rupiah(sum);
+             if(sum!=0){
+               document.getElementById(Lid+"Hidden").value = sum;
+              $(('#'+Lid+'Hidden')).trigger("change");
+             }
+        }else{
+
+          for(let i =0;i<input.length;i++){
+              sum+= (typeof inputValue[`input${input[i]}`] == 'undefined' || inputValue[`input${input[i]}`] == '')? 0 : parseInt(inputValue[`input${input[i]}`]);
+          }
+            
+            document.getElementById(Lid).innerHTML = rupiah(sum);
+            if(sum!=0){
+              document.getElementById(Lid+"Hidden").value = sum;
+              $(('#'+Lid+'Hidden')).trigger("change");
+            }
+            
+          }
+        }
+    }
+    
+    $('[name="14"]').on('change',sumSurplus)
+    function sumSurplus(){
+      let surplus = parseInt(  $('#danaHidden').val())-parseInt($('[name="14"]').val())*0.5;
+      
+        document.getElementById("asuransi").innerHTML = rupiah(surplus);
+        document.getElementById("asuransiHidden").value = surplus;
+    }
+    sumVal([3,4,5,6,7],"total");
+    sumVal([8,9,10,11],"dana");
+    
+
+
+
+</script>
 <script>
  import {
   Sidenav,

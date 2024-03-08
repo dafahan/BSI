@@ -1,0 +1,1293 @@
+<html><head><style type="text/css">.turbo-progress-bar {
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #0076ff;
+    z-index: 9999;
+    transition:
+      width 300ms ease-out,
+      opacity 150ms 150ms ease-in;
+    transform: translate3d(0, 0, 0);
+  }
+  </style><style type="text/css">.turbo-progress-bar {
+      position: fixed;
+      display: block;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: #0076ff;
+      z-index: 9999;
+      transition:
+        width 300ms ease-out,
+        opacity 150ms 150ms ease-in;
+      transform: translate3d(0, 0, 0);
+    }
+    </style><style id="st_globalStyles">
+    /* SCROLLBAR */
+    
+    [dark-scroll]::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    
+    [dark-scroll]::-webkit-scrollbar-track-piece {
+      background-color: #2b2b2b;
+      border: 1px solid #1d1d1d;
+    }
+    
+    [dark-scroll]::-webkit-scrollbar-thumb {
+      height: 10px;
+      background-color: #4d4d4d;
+    }
+    [dark-scroll]::-webkit-scrollbar-thumb:hover {
+      background-color: #5a5a5a;
+    }
+    
+    /* LOAD PROGRESS */
+    
+    .turbolinks-progress-bar {
+      height: 3px;
+      background-color: #ff6250;
+    }
+    
+    /* GROUPING */
+    
+    [data-id].ui-selecting {
+      box-shadow: inset 0 0 0 1px #4285f4 !important;
+    }
+    [data-id].ui-selected {
+      box-shadow: inset 0 0 0 1px #4285f4 !important;
+    }
+    
+    /* CURSOR */
+    
+    body[mode='comments'] * {
+      cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00LjkxNjQ4IDIzLjQxMDlDNS40OTE1MyAyMi45ODg3IDUuOTMxNzkgMjIuMzkzNSA2LjIzMjggMjEuNjQwN0M0Ljc5MDY5IDE5LjczODMgNCAxNy4zOTMzIDQgMTQuOTk3NUM0IDguOTM0MSA4LjkzMjgyIDQgMTUuMDAyMiA0QzIxLjA3MTcgNCAyNiA4LjkzOTE5IDI2IDE1LjAwMjVDMjYgMjEuMDY1OSAyMS4wNjcyIDI2IDE0Ljk5NzggMjZDMTIuOTg5NiAyNiAxMS4wMzUzIDI1LjQ1NTcgOS4zMjM2NyAyNC40MjMxQzguNDI5NjUgMjQuOTU3MiA3LjQxNDM0IDI1LjIyNjggNi4zMDAxOCAyNS4yMjY4QzUuOTU0MjYgMjUuMjI2OCA1LjU5OTM1IDI1LjIwMTQgNS4yNTM0MiAyNS4xNDU0QzQuOTAzIDI1LjA4OTUgNC42Mjg5NiAyNC44MDQ2IDQuNTUyNTggMjQuNDE4QzQuNDc2MjEgMjQuMDI2NCA0LjYxOTk3IDIzLjYyOTYgNC45MTY0OCAyMy40MTA5WiIgZmlsbD0iI0ZGNjI1MCIvPgo8L3N2Zz4K')
+          0 24,
+        auto !important;
+    }
+    
+    body[mode='code'] [data-id]:not(.hidden) {
+      cursor: default;
+    }
+    
+    /* default node state */
+    
+    body[mode='code'] [data-id]:not(.hidden), body[mode='comments'] [data-id]:not(.hidden) {
+      pointer-events: all;
+    }
+    
+    /* is_image */
+    
+    body[mode='code'] [data-id].is_image [data-id], body[mode='comments'] [data-id].is_image [data-id] {
+      pointer-events: none !important;
+    }
+    
+    /* without a data-id or ignored */
+    
+    [data-id].ignore,body[mode='code'] *:not([data-id]) {
+      pointer-events: none !important;
+    }
+    /* disable transforms for ignored elements */
+    
+    
+    body[mode='code'] [data-id]:hover{
+      transform: none !important;
+    }
+    
+    </style><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png"><meta name="og:type" content="website"><meta name="twitter:card" content="photo"><script id="anima-hotspots-script" src="hotspots.js"></script><style id="hotspots-styles">
+        .hotspot {
+          position: absolute;
+          border: 1px solid #2a9fd8;
+          background: rgba(0, 173, 255, 0.54);
+          opacity: 0;
+          z-index: -1;
+          pointer-events:none;
+        }
+      </style><style id="hide-styles">
+        .hotspot {
+          display:none !important;
+        }
+      </style><script id="s_turbo" src="https://animaapp.s3.amazonaws.com/static/turbo.es2017-umd.js"></script><script id="anima-overrides-script" src="overrides.js"></script><script src="https://animaapp.s3.amazonaws.com/js/timeline.js"></script><style>
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+    
+    @import url("https://fonts.googleapis.com/css?family=Istok+Web:700,400italic,400,700italic|Inter:700,700italic");
+    
+    /* The following line is used to measure usage of this code. You can remove it if you want. */
+    @import url("https://px.animaapp.com/6554f9fa4d5e51248baa0500.6554f9fb4d5e51248baa0503.27zNDUH.hch.png");
+    
+    
+    .screen textarea:focus,
+    .screen input:focus {
+      outline: none;
+    }
+    
+    .screen * {
+      -webkit-font-smoothing: antialiased;
+      box-sizing: border-box;
+    }
+    
+    .screen div {
+      -webkit-text-size-adjust: none;
+    }
+    
+    .component-wrapper a {
+      display: contents;
+      pointer-events: auto;
+      text-decoration: none;
+    }
+    
+    .component-wrapper * {
+      -webkit-font-smoothing: antialiased;
+      box-sizing: border-box;
+      pointer-events: none;
+    }
+    
+    .component-wrapper a *,
+    .component-wrapper input,
+    .component-wrapper video,
+    .component-wrapper iframe {
+      pointer-events: auto;
+    }
+    
+    .component-wrapper.not-ready,
+    .component-wrapper.not-ready * {
+      visibility: hidden !important;
+    }
+    
+    .screen a {
+      display: contents;
+      text-decoration: none;
+    }
+    
+    .full-width-a {
+      width: 100%;
+    }
+    
+    .full-height-a {
+      height: 100%;
+    }
+    
+    .container-center-vertical {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+      pointer-events: none;
+    }
+    
+    .container-center-vertical > * {
+      flex-shrink: 0;
+      pointer-events: auto;
+    }
+    
+    .container-center-horizontal {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      pointer-events: none;
+      width: 100%;
+    }
+    
+    .container-center-horizontal > * {
+      flex-shrink: 0;
+      pointer-events: auto;
+    }
+    
+    .auto-animated div {
+      --z-index: -1;
+      opacity: 0;
+      position: absolute;
+    }
+    
+    .auto-animated input {
+      --z-index: -1;
+      opacity: 0;
+      position: absolute;
+    }
+    
+    .auto-animated .container-center-vertical,
+    .auto-animated .container-center-horizontal {
+      opacity: 1;
+    }
+    
+    .overlay-base {
+      display: none;
+      height: 100%;
+      opacity: 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+    
+    .overlay-base.animate-appear {
+      align-items: center;
+      animation: reveal 0.3s ease-in-out 1 normal forwards;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      opacity: 0;
+    }
+    
+    .overlay-base.animate-disappear {
+      animation: reveal 0.3s ease-in-out 1 reverse forwards;
+      display: block;
+      opacity: 1;
+      pointer-events: none;
+    }
+    
+    .overlay-base.animate-disappear * {
+      pointer-events: none;
+    }
+    
+    @keyframes reveal {
+      from { opacity: 0 }
+     to { opacity: 1 }
+    }
+    
+    .animate-nodelay {
+      animation-delay: 0s;
+    }
+    
+    .align-self-flex-start {
+      align-self: flex-start;
+    }
+    
+    .align-self-flex-end {
+      align-self: flex-end;
+    }
+    
+    .align-self-flex-center {
+      align-self: flex-center;
+    }
+    
+    .valign-text-middle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .valign-text-bottom {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    
+    input:focus {
+      outline: none;
+    }
+    
+    .listeners-active,
+    .listeners-active * {
+      pointer-events: auto;
+    }
+    
+    .hidden,
+    .hidden * {
+      pointer-events: none;
+      visibility: hidden;
+    }
+    
+    .smart-layers-pointers,
+    .smart-layers-pointers * {
+      pointer-events: auto;
+      visibility: visible;
+    }
+    
+    .listeners-active-click,
+    .listeners-active-click * {
+      cursor: pointer;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    :root { 
+      --black: #000000;
+      --persian-green: #01a39e;
+      --yellow-orange: #f8ae3e;
+     
+      --font-size-l: 13px;
+      --font-size-m: 12px;
+      --font-size-xl: 20px;
+     
+      --font-family-inter: "Inter", Helvetica;
+      --font-family-istok_web: "Istok Web", Helvetica;
+    }
+    .istokweb-normal-black-12px {
+      color: var(--black);
+      font-family: var(--font-family-istok_web);
+      font-size: var(--font-size-m);
+      font-style: normal;
+      font-weight: 400;
+    }
+    
+    .istokweb-normal-black-12px-2 {
+      color: var(--black);
+      font-family: var(--font-family-istok_web);
+      font-size: var(--font-size-m);
+      font-style: normal;
+      font-weight: 400;
+    }
+    
+    .istokweb-normal-black-13px {
+      color: var(--black);
+      font-family: var(--font-family-istok_web);
+      font-size: var(--font-size-l);
+      font-style: normal;
+      font-weight: 400;
+    }
+    
+    .istokweb-normal-persian-green-13px {
+      color: var(--persian-green);
+      font-family: var(--font-family-istok_web);
+      font-size: var(--font-size-l);
+      font-style: normal;
+      font-weight: 400;
+    }
+    
+    :root {
+    }
+    
+    
+    /* screen - print-menu-5 */
+    
+    .print-menu-5 {
+      background-color: #ffffff;
+      height: 842px;
+      overflow: hidden;
+      overflow-x: hidden;
+      position: relative;
+      width: 595px;
+    }
+    
+    .print-menu-5 .rectangle-116-CeGUWW {
+      background-color: #01a39e80;
+      height: 146px;
+      left: 439px;
+      position: absolute;
+      top: -3px;
+      transform: rotate(-90deg);
+      width: 212px;
+    }
+    
+    .print-menu-5 .rectangle-117-CeGUWW {
+      background-color: #f8ae3eb2;
+      height: 146px;
+      left: 371px;
+      position: absolute;
+      top: -67px;
+      transform: rotate(-90deg);
+      width: 212px;
+    }
+    
+    .print-menu-5 .bsi-logo-1-2-CeGUWW {
+      background-color: transparent;
+      height: 94px;
+      left: 15px;
+      position: absolute;
+      top: 0px;
+      width: 260px;
+    }
+    
+    .print-menu-5 .assalaamualaikum-war-CeGUWW {
+      background-color: transparent;
+      height: auto;
+      left: 33px;
+      letter-spacing: 0.00px;
+      line-height: normal;
+      position: absolute;
+      text-align: left;
+      top: 132px;
+      width: 530px;
+    }
+    
+    .print-menu-5 .span0-EtPS0y {
+      color: var(--black);
+      font-family: var(--font-family-istok_web);
+      font-size: var(--font-size-m);
+      font-style: italic;
+      font-weight: 700;
+    }
+    
+    .print-menu-5 .span1-EtPS0y {
+    }
+    
+    .print-menu-5 .asumsi-tingkat-infla-CeGUWW {
+      background-color: transparent;
+      height: auto;
+      left: 34px;
+      letter-spacing: 0.00px;
+      line-height: normal;
+      position: absolute;
+      text-align: left;
+      top: 281px;
+      width: 236px;
+    }
+    
+    .print-menu-5 .span0-lSLn2O {
+    }
+    
+    .print-menu-5 .span1-lSLn2O {
+    }
+    
+    .print-menu-5 .span2-lSLn2O {
+    }
+    
+    .print-menu-5 .span3-lSLn2O {
+    }
+    
+    .print-menu-5 .span4-lSLn2O {
+    }
+    
+    .print-menu-5 .span5-lSLn2O {
+    }
+    
+    .print-menu-5 .perencana-kartika-usia-20-tahun-CeGUWW {
+      background-color: transparent;
+      color: transparent;
+      font-family: var(--font-family-istok_web);
+      font-size: var(--font-size-m);
+      font-style: normal;
+      font-weight: 400;
+      height: auto;
+      left: 34px;
+      letter-spacing: 0.00px;
+      line-height: normal;
+      position: absolute;
+      text-align: left;
+      top: 239px;
+      width: 143px;
+    }
+    
+    .print-menu-5 .span0-55E2NS {
+      font-style: normal;
+    }
+    
+    .print-menu-5 .span1-55E2NS {
+      color: var(--persian-green);
+      font-style: normal;
+      font-weight: 700;
+    }
+    
+    .print-menu-5 .span2-55E2NS {
+      font-style: normal;
+    }
+    
+    .print-menu-5 .span3-55E2NS {
+      font-style: normal;
+    }
+    
+    .print-menu-5 .span4-55E2NS {
+      color: var(--persian-green);
+      font-style: normal;
+      font-weight: 700;
+    }
+    
+    .print-menu-5 .perencanaan-dana-pendidikan-anak-CeGUWW {
+      background-color: transparent;
+      color: var(--yellow-orange);
+      font-family: var(--font-family-istok_web);
+      font-size: var(--font-size-xl);
+      font-style: normal;
+      font-weight: 700;
+      height: auto;
+      left: 33px;
+      letter-spacing: 0.00px;
+      line-height: normal;
+      position: absolute;
+      text-align: left;
+      top: 96px;
+      width: auto;
+    }
+    
+    .print-menu-5 .rectangle-118-CeGUWW {
+      background-color: #01a39e80;
+      height: 86px;
+      left: 14px;
+      position: absolute;
+      top: 777px;
+      transform: rotate(-90deg);
+      width: 144px;
+    }
+    
+    .print-menu-5 .rectangle-119-CeGUWW {
+      background-color: var(--yellow-orange);
+      height: 94px;
+      left: -45px;
+      position: absolute;
+      top: 817px;
+      transform: rotate(-90deg);
+      width: 144px;
+    }
+    
+    .print-menu-5 .total-dana-yang-dibu-CeGUWW {
+      background-color: transparent;
+      height: auto;
+      left: 34px;
+      letter-spacing: 0.00px;
+      line-height: normal;
+      position: absolute;
+      text-align: left;
+      top: 702px;
+      width: auto;
+    }
+    
+    .print-menu-5 .span0-PyECAl {
+    }
+    
+    .print-menu-5 .span1-PyECAl {
+    }
+    
+    .print-menu-5 .span2-PyECAl {
+    }
+    
+    .print-menu-5 .span3-PyECAl {
+    }
+    
+    .print-menu-5 .wassalaamualaikum-wa-CeGUWW {
+      background-color: transparent;
+      color: var(--black);
+      font-family: var(--font-family-istok_web);
+      font-size: var(--font-size-m);
+      font-style: italic;
+      font-weight: 400;
+      height: auto;
+      left: 33px;
+      letter-spacing: 0.00px;
+      line-height: normal;
+      position: absolute;
+      text-align: left;
+      top: 742px;
+      width: auto;
+    }
+    
+    .print-menu-5 .pribadi-dan-rahasia-CeGUWW {
+      background-color: transparent;
+      color: var(--black);
+      font-family: var(--font-family-inter);
+      font-size: var(--font-size-m);
+      font-style: italic;
+      font-weight: 700;
+      height: auto;
+      left: 12px;
+      letter-spacing: 0.00px;
+      line-height: normal;
+      position: absolute;
+      text-align: left;
+      top: 818px;
+      width: auto;
+    }
+    
+    .print-menu-5 .hormat-kami-perencana-keuangan-CeGUWW {
+      background-color: transparent;
+      height: auto;
+      left: 441px;
+      letter-spacing: 0.00px;
+      line-height: normal;
+      position: absolute;
+      text-align: left;
+      top: 739px;
+      width: auto;
+    }
+    
+    .print-menu-5 .span0-VRLhvJ {
+    }
+    
+    .print-menu-5 .span1-VRLhvJ {
+      color: var(--black);
+      font-family: var(--font-family-istok_web);
+      font-size: var(--font-size-m);
+      font-style: italic;
+      font-weight: 400;
+    }
+    
+    .print-menu-5 .span2-VRLhvJ {
+    }
+    
+    .print-menu-5 .rectangle-120-CeGUWW {
+      background-color: #ffffff;
+      height: 309px;
+      left: 33px;
+      position: absolute;
+      top: 393px;
+      width: 552px;
+    }
+    
+    .print-menu-5 .rectangle-121-CeGUWW {
+      background-color: var(--yellow-orange);
+      height: 45px;
+      left: 33px;
+      position: absolute;
+      top: 348px;
+      width: 551px;
+    }
+    
+    .print-menu-5 .tingkat-pendidikan-CeGUWW {
+      background-color: transparent;
+      height: auto;
+      left: 40px;
+      letter-spacing: 0.00px;
+      line-height: normal;
+      position: absolute;
+      text-align: left;
+      top: 351px;
+      width: 79px;
+    }
+    
+    .print-menu-5 .biaya-sekarang-CeGUWW {
+      background-color: transparent;
+      height: auto;
+      left: 144px;
+      letter-spacing: 0.00px;
+      line-height: normal;
+      position: absolute;
+      text-align: center;
+      top: 351px;
+      width: 64px;
+    }
+    
+    .print-menu-5 .periode-pendidikan-CeGUWW {
+      background-color: transparent;
+      height: 38px;
+      left: 221px;
+      letter-spacing: 0.00px;
+      line-height: normal;
+      position: absolute;
+      text-align: center;
+      top: 352px;
+      width: 85px;
+    }
+    
+    .print-menu-5 .jangka-waktu-CeGUWW {
+      background-color: transparent;
+      height: auto;
+      left: 318px;
+      letter-spacing: 0.00px;
+      line-height: normal;
+      position: absolute;
+      text-align: left;
+      top: 352px;
+      width: 67px;
+    }
+    
+    .print-menu-5 .biaya-mendatang-CeGUWW {
+      background-color: transparent;
+      height: auto;
+      left: 390px;
+      letter-spacing: 0.00px;
+      line-height: normal;
+      position: absolute;
+      text-align: left;
+      top: 353px;
+      width: 90px;
+    }
+    
+    .print-menu-5 .tabungan-bulanan-CeGUWW {
+      background-color: transparent;
+      height: auto;
+      left: 499px;
+      letter-spacing: 0.00px;
+      line-height: normal;
+      position: absolute;
+      text-align: left;
+      top: 352px;
+      width: 94px;
+    }
+    
+    .print-menu-5 .vector-1-CeGUWW {
+      background-color: transparent;
+      height: 354px;
+      left: 129px;
+      position: absolute;
+      top: 348px;
+      width: 2px;
+    }
+    
+    .print-menu-5 .vector-10-CeGUWW {
+      background-color: transparent;
+      height: 355px;
+      left: 32px;
+      position: absolute;
+      top: 348px;
+      width: 2px;
+    }
+    
+    .print-menu-5 .vector-6-CeGUWW {
+      background-color: transparent;
+      height: 2px;
+      left: 33px;
+      position: absolute;
+      top: 450px;
+      width: 551px;
+    }
+    
+    .print-menu-5 .vector-7-CeGUWW {
+      background-color: transparent;
+      height: 2px;
+      left: 33px;
+      position: absolute;
+      top: 511px;
+      width: 552px;
+    }
+    
+    .print-menu-5 .vector-8-CeGUWW {
+      background-color: transparent;
+      height: 2px;
+      left: 33px;
+      position: absolute;
+      top: 577px;
+      width: 551px;
+    }
+    
+    .print-menu-5 .vector-9-CeGUWW {
+      background-color: transparent;
+      height: 2px;
+      left: 33px;
+      position: absolute;
+      top: 635px;
+      width: 551px;
+    }
+    
+    .print-menu-5 .vector-12-CeGUWW {
+      background-color: transparent;
+      height: 2px;
+      left: 33px;
+      position: absolute;
+      top: 702px;
+      width: 552px;
+    }
+    
+    .print-menu-5 .vector-2-CeGUWW {
+      background-color: transparent;
+      height: 354px;
+      left: 222px;
+      position: absolute;
+      top: 348px;
+      width: 2px;
+    }
+    
+    .print-menu-5 .vector-3-CeGUWW {
+      background-color: transparent;
+      height: 354px;
+      left: 303px;
+      position: absolute;
+      top: 348px;
+      width: 2px;
+    }
+    
+    .print-menu-5 .vector-4-CeGUWW {
+      background-color: transparent;
+      height: 354px;
+      left: 371px;
+      position: absolute;
+      top: 348px;
+      width: 2px;
+    }
+    
+    .print-menu-5 .vector-5-CeGUWW {
+      background-color: transparent;
+      height: 354px;
+      left: 476px;
+      position: absolute;
+      top: 348px;
+      width: 2px;
+    }
+    
+    .print-menu-5 .vector-11-CeGUWW {
+      background-color: transparent;
+      height: 354px;
+      left: 583px;
+      position: absolute;
+      top: 348px;
+      width: 2px;
+    }
+    
+    .print-menu-5 .tk-CeGUWW {
+      background-color: transparent;
+      height: auto;
+      left: 40px;
+      letter-spacing: 0.00px;
+      line-height: normal;
+      position: absolute;
+      text-align: center;
+      top: 396px;
+      width: auto;
+    }
+    
+    .print-menu-5 .tahun-1-lanjutan-CeGUWW {
+      left: 71px;
+      top: 397px;
+    }
+    
+    .print-menu-5 .rp-0-CeGUWW {
+      left: 129px;
+      top: 396px;
+    }
+    
+    .print-menu-5 .rp-0-4cNboW {
+      left: 380px;
+      top: 396px;
+    }
+    
+    .print-menu-5 .rp-0-Fexccy {
+      left: 485px;
+      top: 396px;
+    }
+    
+    .print-menu-5 .rp-0-TRUQ9C {
+      left: 129px;
+      top: 456px;
+    }
+    
+    .print-menu-5 .rp-0-wA3K2F {
+      left: 380px;
+      top: 456px;
+    }
+    
+    .print-menu-5 .rp-0-J2r2ro {
+      left: 485px;
+      top: 456px;
+    }
+    
+    .print-menu-5 .rp-0-jvnHCZ {
+      left: 129px;
+      top: 520px;
+    }
+    
+    .print-menu-5 .rp-0-LYEBPO {
+      left: 380px;
+      top: 520px;
+    }
+    
+    .print-menu-5 .rp-0-xtPZxC {
+      left: 485px;
+      top: 520px;
+    }
+    
+    .print-menu-5 .rp-0-bhhMWt {
+      left: 129px;
+      top: 579px;
+    }
+    
+    .print-menu-5 .rp-0-M3q92e {
+      left: 380px;
+      top: 579px;
+    }
+    
+    .print-menu-5 .rp-0-BxJ6x5 {
+      left: 485px;
+      top: 579px;
+    }
+    
+    .print-menu-5 .rp-0-57hHcB {
+      left: 129px;
+      top: 643px;
+    }
+    
+    .print-menu-5 .rp-0-MvW4Ht {
+      left: 380px;
+      top: 643px;
+    }
+    
+    .print-menu-5 .rp-0-2NR5e5 {
+      left: 485px;
+      top: 643px;
+    }
+    
+    .print-menu-5 .rp-0-gIQLH2 {
+      left: 129px;
+      top: 431px;
+    }
+    
+    .print-menu-5 .rp-0-xP7rY6 {
+      left: 380px;
+      top: 431px;
+    }
+    
+    .print-menu-5 .rp-0-RQW3hV {
+      left: 485px;
+      top: 431px;
+    }
+    
+    .print-menu-5 .rp-0-uFPNkW {
+      left: 129px;
+      top: 491px;
+    }
+    
+    .print-menu-5 .rp-0-J8dWeY {
+      left: 380px;
+      top: 491px;
+    }
+    
+    .print-menu-5 .rp-0-gRzuWA {
+      left: 485px;
+      top: 491px;
+    }
+    
+    .print-menu-5 .rp-0-GhUibs {
+      left: 129px;
+      top: 555px;
+    }
+    
+    .print-menu-5 .rp-0-WfBeHq {
+      left: 380px;
+      top: 555px;
+    }
+    
+    .print-menu-5 .rp-0-MaWXeP {
+      left: 485px;
+      top: 555px;
+    }
+    
+    .print-menu-5 .rp-0-zxw7v1 {
+      left: 129px;
+      top: 616px;
+    }
+    
+    .print-menu-5 .rp-0-MVXdvF {
+      left: 380px;
+      top: 616px;
+    }
+    
+    .print-menu-5 .rp-0-xlu3gI {
+      left: 485px;
+      top: 616px;
+    }
+    
+    .print-menu-5 .rp-0-obd58i {
+      left: 129px;
+      top: 678px;
+    }
+    
+    .print-menu-5 .rp-0-mjf2tm {
+      left: 380px;
+      top: 678px;
+    }
+    
+    .print-menu-5 .rp-0-7phbfx {
+      left: 485px;
+      top: 678px;
+    }
+    
+    .print-menu-5 .x0-CeGUWW {
+      left: 235px;
+      top: 397px;
+    }
+    
+    .print-menu-5 .x0-4cNboW {
+      left: 235px;
+      top: 457px;
+    }
+    
+    .print-menu-5 .x0-Fexccy {
+      left: 235px;
+      top: 521px;
+    }
+    
+    .print-menu-5 .x0-TRUQ9C {
+      left: 235px;
+      top: 581px;
+    }
+    
+    .print-menu-5 .x0-wA3K2F {
+      left: 235px;
+      top: 645px;
+    }
+    
+    .print-menu-5 .x0-J2r2ro {
+      left: 309px;
+      top: 397px;
+    }
+    
+    .print-menu-5 .x0-jvnHCZ {
+      left: 309px;
+      top: 457px;
+    }
+    
+    .print-menu-5 .x0-LYEBPO {
+      left: 309px;
+      top: 521px;
+    }
+    
+    .print-menu-5 .x0-xtPZxC {
+      left: 309px;
+      top: 581px;
+    }
+    
+    .print-menu-5 .x0-bhhMWt {
+      left: 309px;
+      top: 645px;
+    }
+    
+    .print-menu-5 .x0-M3q92e {
+      left: 235px;
+      top: 431px;
+    }
+    
+    .print-menu-5 .x0-BxJ6x5 {
+      left: 235px;
+      top: 491px;
+    }
+    
+    .print-menu-5 .x0-57hHcB {
+      left: 235px;
+      top: 555px;
+    }
+    
+    .print-menu-5 .x0-MvW4Ht {
+      left: 235px;
+      top: 615px;
+    }
+    
+    .print-menu-5 .x0-2NR5e5 {
+      left: 235px;
+      top: 679px;
+    }
+    
+    .print-menu-5 .x0-gIQLH2 {
+      left: 309px;
+      top: 431px;
+    }
+    
+    .print-menu-5 .x0-xP7rY6 {
+      left: 309px;
+      top: 491px;
+    }
+    
+    .print-menu-5 .x0-RQW3hV {
+      left: 309px;
+      top: 555px;
+    }
+    
+    .print-menu-5 .x0-uFPNkW {
+      left: 309px;
+      top: 615px;
+    }
+    
+    .print-menu-5 .x0-J8dWeY {
+      left: 309px;
+      top: 679px;
+    }
+    
+    .print-menu-5 .tahun-1-lanjutan-4cNboW {
+      left: 72px;
+      top: 457px;
+    }
+    
+    .print-menu-5 .tahun-1-lanjutan-Fexccy {
+      left: 74px;
+      top: 522px;
+    }
+    
+    .print-menu-5 .tahun-1-lanjutan-TRUQ9C {
+      left: 75px;
+      top: 582px;
+    }
+    
+    .print-menu-5 .tahun-1-lanjutan-wA3K2F {
+      left: 74px;
+      top: 643px;
+    }
+    
+    .print-menu-5 .sd-CeGUWW {
+      background-color: transparent;
+      height: auto;
+      left: 40px;
+      letter-spacing: 0.00px;
+      line-height: normal;
+      position: absolute;
+      text-align: center;
+      top: 457px;
+      width: auto;
+    }
+    
+    .print-menu-5 .smp-CeGUWW {
+      background-color: transparent;
+      height: auto;
+      left: 39px;
+      letter-spacing: 0.00px;
+      line-height: normal;
+      position: absolute;
+      text-align: center;
+      top: 520px;
+      width: auto;
+    }
+    
+    .print-menu-5 .sma-CeGUWW {
+      background-color: transparent;
+      height: auto;
+      left: 41px;
+      letter-spacing: 0.00px;
+      line-height: normal;
+      position: absolute;
+      text-align: center;
+      top: 582px;
+      width: auto;
+    }
+    
+    .print-menu-5 .pt-CeGUWW {
+      background-color: transparent;
+      height: auto;
+      left: 43px;
+      letter-spacing: 0.00px;
+      line-height: normal;
+      position: absolute;
+      text-align: center;
+      top: 643px;
+      width: auto;
+    }
+    
+    .print-menu-5 .rp-0 {
+      background-color: transparent;
+      height: auto;
+      letter-spacing: 0.00px;
+      line-height: normal;
+      position: absolute;
+      text-align: center;
+      width: 92px;
+    }
+    
+    .print-menu-5 .tahun-1-lanjutan {
+      background-color: transparent;
+      height: auto;
+      letter-spacing: 0.00px;
+      line-height: normal;
+      position: absolute;
+      text-align: left;
+      width: auto;
+    }
+    
+    .print-menu-5 .x0 {
+      background-color: transparent;
+      height: auto;
+      letter-spacing: 0.00px;
+      line-height: normal;
+      position: absolute;
+      text-align: center;
+      width: 56px;
+    }
+    @media print {
+    .screen {
+      zoom: 1.25;
+    }
+  }
+    </style><script id="anime-js-script" src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js" integrity="sha256-98Q574VkbV+PkxXCKSgL6jVq9mrVbS7uCdA+vt0sLS8=" crossorigin="anonymous"></script><script id="imgloaded-js-script" src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script></head><body style="margin: 0;background: #ffffff;"><input type="hidden" id="screen" name="page" value="print-menu-5"><div class="container-center-horizontal"><div class="print-menu-5 screen " data-id="531:929"><div class="rectangle-116-CeGUWW" data-id="531:931"></div><div class="rectangle-117-CeGUWW" data-id="531:932"></div><img class="bsi-logo-1-2-CeGUWW" data-id="531:930" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6554fa2083429d8d932cf256/img/bsi-logo-1-2@2x.png" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6554fa2083429d8d932cf256/img/bsi-logo-1-2@2x.png" alt="BSI LOGO-1 2"><p class="assalaamualaikum-war-CeGUWW istokweb-normal-black-12px-2" data-id="531:940"><span class="span0-EtPS0y">Assalaamu’alaikum Warahmatullahi Wabarakatuh.<br></span><span class="span1-EtPS0y istokweb-normal-black-12px"><br>Pendidikan terbaik bagi anak-anak merupakan modal untuk masa depan yang cerah yang bisa diberikan oleh orang tua. Berikut adalah perhitungan dana pendidikan anak per bulannya sesuai dengan jenjang pendidikan, jangka waktu, dan harapan investasi yang akan membantu pengelolaan keuangan anda.</span></p><p class="asumsi-tingkat-infla-CeGUWW istokweb-normal-black-12px-2" data-id="536:998"><span class="span0-lSLn2O istokweb-normal-black-12px-2">Asumsi Tingkat Inflasi&nbsp;&nbsp;:</span><span class="span1-lSLn2O istokweb-normal-black-12px" id="3">Rp.4</span><span class="span2-lSLn2O istokweb-normal-black-12px-2">Asumsi Hasil Investasi&nbsp;&nbsp;:</span><span class="span3-lSLn2O istokweb-normal-black-12px" id="4">Rp.10</span><span class="span4-lSLn2O istokweb-normal-black-12px-2">Dana yang sudah Ada untuk Kuliah :</span><span class="span5-lSLn2O istokweb-normal-black-12px" id="5">Rp.10</span></p><p class="perencana-kartika-usia-20-tahun-CeGUWW" data-id="536:997"><span class="span0-55E2NS istokweb-normal-black-12px-2">Perencana : </span><span class="span1-55E2NS" id="1">Dafa<br></span><span class="span2-55E2NS istokweb-normal-black-12px-2">Usia</span><span class="span3-55E2NS istokweb-normal-black-12px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </span><span class="span4-55E2NS" id="2">20</span></p><div class="perencanaan-dana-pendidikan-anak-CeGUWW" data-id="531:935">Perencanaan Dana Pendidikan Anak</div><div class="rectangle-118-CeGUWW" data-id="531:933"></div><div class="rectangle-119-CeGUWW" data-id="531:934"></div><p class="total-dana-yang-dibu-CeGUWW istokweb-normal-black-12px-2" data-id="536:1008"><span class="span0-PyECAl istokweb-normal-black-12px-2">Total Dana yang Dibutuhkan :</span><span class="span1-PyECAl istokweb-normal-black-12px" id="total">Rp.NaN</span><span class="span2-PyECAl istokweb-normal-black-12px-2">Total Tabungan per Bulan&nbsp;&nbsp;&nbsp;&nbsp; :</span><span class="span3-PyECAl istokweb-normal-black-12px" id="totaltb">Rp.NaN</span></p><div class="wassalaamualaikum-wa-CeGUWW" data-id="536:1009">Wassalaamu’alaikum warahmatullahi wabarakatuh.</div><div class="pribadi-dan-rahasia-CeGUWW" data-id="536:1010">PRIBADI DAN RAHASIA</div><div class="hormat-kami-perencana-keuangan-CeGUWW istokweb-normal-black-12px-2" data-id="536:1011"><span class="span0-VRLhvJ istokweb-normal-black-12px-2">Hormat Kami<br></span><span class="span1-VRLhvJ"><br><br><br></span><span class="span2-VRLhvJ istokweb-normal-black-12px-2">Perencana Keuangan</span></div><div class="rectangle-120-CeGUWW" data-id="531:941"></div><div class="rectangle-121-CeGUWW" data-id="531:945"></div><div class="tingkat-pendidikan-CeGUWW istokweb-normal-black-13px" data-id="531:946">Tingkat Pendidikan</div><div class="biaya-sekarang-CeGUWW istokweb-normal-black-13px" data-id="531:947">Biaya Sekarang</div><div class="periode-pendidikan-CeGUWW valign-text-middle istokweb-normal-black-13px" data-id="531:948">Periode Pendidikan</div><div class="jangka-waktu-CeGUWW istokweb-normal-black-13px" data-id="531:950">Jangka Waktu</div><div class="biaya-mendatang-CeGUWW istokweb-normal-black-13px" data-id="531:949">Biaya Mendatang</div><div class="tabungan-bulanan-CeGUWW istokweb-normal-black-13px" data-id="531:955">Tabungan Bulanan</div><img class="vector-1-CeGUWW" data-id="531:951" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-1.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-1.svg" alt="Vector 1" style="background:#FFC700;"><img class="vector-10-CeGUWW" data-id="536:1003" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-10.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-10.svg" alt="Vector 10" style="background:#FFC700;"><img class="vector-6-CeGUWW" data-id="531:957" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-6.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-6.svg" alt="Vector 6" style="background:#FFC700;"><img class="vector-7-CeGUWW" data-id="531:958" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-7.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-7.svg" alt="Vector 7" style="background:#FFC700;"><img class="vector-8-CeGUWW" data-id="531:959" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-8.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-8.svg" alt="Vector 8" style="background:#FFC700;"><img class="vector-9-CeGUWW" data-id="531:960" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-9.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-9.svg" alt="Vector 9" style="background:#FFC700;"><img class="vector-12-CeGUWW" data-id="536:1006" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-12.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-12.svg" alt="Vector 12" style="background:#FFC700;"><img class="vector-2-CeGUWW" data-id="531:952" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-2.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-2.svg" alt="Vector 2" style="background:#FFC700;"><img class="vector-3-CeGUWW" data-id="531:953" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-3.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-3.svg" alt="Vector 3" style="background:#FFC700;"><img class="vector-4-CeGUWW" data-id="531:954" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-4.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-4.svg" alt="Vector 4" style="background:#FFC700;"><img class="vector-5-CeGUWW" data-id="531:956" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-5.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-5.svg" alt="Vector 5" style="background:#FFC700;"><img class="vector-11-CeGUWW" data-id="536:1004" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-11.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/656594fd247e287a5a481a89/img/vector-11.svg" alt="Vector 11" style="background:#FFC700;"><div class="tk-CeGUWW istokweb-normal-persian-green-13px" data-id="531:961">TK</div><div class="tahun-1-lanjutan-CeGUWW tahun-1-lanjutan istokweb-normal-black-12px" data-id="536:966">Tahun 1<br><br>Lanjutan</div><div class="rp-0-CeGUWW rp-0 istokweb-normal-black-12px" data-id="536:971" id="6">Rp.10</div><div class="rp-0-4cNboW rp-0 istokweb-normal-black-12px" data-id="697:51" id="tk">Rp.NaN</div><div class="rp-0-Fexccy rp-0 istokweb-normal-black-12px" data-id="697:61" id="tktb">Rp.NaN</div><div class="rp-0-TRUQ9C rp-0 istokweb-normal-black-12px" data-id="697:24" id="12">Rp.10</div><div class="rp-0-wA3K2F rp-0 istokweb-normal-black-12px" data-id="697:52" id="sd">Rp.NaN</div><div class="rp-0-J2r2ro rp-0 istokweb-normal-black-12px" data-id="697:62" id="sdtb">Rp.NaN</div><div class="rp-0-jvnHCZ rp-0 istokweb-normal-black-12px" data-id="697:26" id="18">Rp.10</div><div class="rp-0-LYEBPO rp-0 istokweb-normal-black-12px" data-id="697:53" id="smp">Rp.NaN</div><div class="rp-0-xtPZxC rp-0 istokweb-normal-black-12px" data-id="697:63" id="smptb">Rp.NaN</div><div class="rp-0-bhhMWt rp-0 istokweb-normal-black-12px" data-id="697:28" id="24">Rp.10</div><div class="rp-0-M3q92e rp-0 istokweb-normal-black-12px" data-id="697:54" id="sma">Rp.NaN</div><div class="rp-0-BxJ6x5 rp-0 istokweb-normal-black-12px" data-id="697:64" id="smatb">Rp.NaN</div><div class="rp-0-57hHcB rp-0 istokweb-normal-black-12px" data-id="697:30" id="30">Rp.10</div><div class="rp-0-MvW4Ht rp-0 istokweb-normal-black-12px" data-id="697:55" id="kul">Rp.NaN</div><div class="rp-0-2NR5e5 rp-0 istokweb-normal-black-12px" data-id="697:65" id="kultb">Rp.NaN</div><div class="rp-0-gIQLH2 rp-0 istokweb-normal-black-12px" data-id="697:23" id="9">Rp.10</div><div class="rp-0-xP7rY6 rp-0 istokweb-normal-black-12px" data-id="697:56" id="lantk">Rp.NaN</div><div class="rp-0-RQW3hV rp-0 istokweb-normal-black-12px" data-id="697:66" id="lantktb">Rp.NaN</div><div class="rp-0-uFPNkW rp-0 istokweb-normal-black-12px" data-id="697:25" id="15">Rp.10</div><div class="rp-0-J8dWeY rp-0 istokweb-normal-black-12px" data-id="697:57" id="lansd">Rp.NaN</div><div class="rp-0-gRzuWA rp-0 istokweb-normal-black-12px" data-id="697:67" id="lansdtb">Rp.NaN</div><div class="rp-0-GhUibs rp-0 istokweb-normal-black-12px" data-id="697:27" id="21">Rp.10</div><div class="rp-0-WfBeHq rp-0 istokweb-normal-black-12px" data-id="697:58" id="lansmp">Rp. 0</div><div class="rp-0-MaWXeP rp-0 istokweb-normal-black-12px" data-id="697:68" id="lansmptb">Rp.NaN</div><div class="rp-0-zxw7v1 rp-0 istokweb-normal-black-12px" data-id="697:29" id="27">Rp.10</div><div class="rp-0-MVXdvF rp-0 istokweb-normal-black-12px" data-id="697:59" id="lansma">Rp.NaN</div><div class="rp-0-xlu3gI rp-0 istokweb-normal-black-12px" data-id="697:69" id="lansmatb">Rp.NaN</div><div class="rp-0-obd58i rp-0 istokweb-normal-black-12px" data-id="697:31" id="33">Rp.101</div><div class="rp-0-mjf2tm rp-0 istokweb-normal-black-12px" data-id="697:60" id="lankul">Rp.NaN</div><div class="rp-0-7phbfx rp-0 istokweb-normal-black-12px" data-id="697:70" id="lankultb">Rp.NaN</div><div class="x0-CeGUWW x0 istokweb-normal-black-12px" data-id="536:986" id="7">Rp.10</div><div class="x0-4cNboW x0 istokweb-normal-black-12px" data-id="697:35" id="13">Rp.10</div><div class="x0-Fexccy x0 istokweb-normal-black-12px" data-id="697:39" id="19">Rp.10</div><div class="x0-TRUQ9C x0 istokweb-normal-black-12px" data-id="697:43" id="25">Rp.10</div><div class="x0-wA3K2F x0 istokweb-normal-black-12px" data-id="697:47" id="31">Rp.10</div><div class="x0-J2r2ro x0 istokweb-normal-black-12px" data-id="697:33" id="8">Rp.1</div><div class="x0-jvnHCZ x0 istokweb-normal-black-12px" data-id="697:36" id="14">Rp.10</div><div class="x0-LYEBPO x0 istokweb-normal-black-12px" data-id="697:40" id="20">Rp.10</div><div class="x0-xtPZxC x0 istokweb-normal-black-12px" data-id="697:44" id="26">Rp.10</div><div class="x0-bhhMWt x0 istokweb-normal-black-12px" data-id="697:48" id="32">Rp.10</div><div class="x0-M3q92e x0 istokweb-normal-black-12px" data-id="697:32" id="10">Rp.100</div><div class="x0-BxJ6x5 x0 istokweb-normal-black-12px" data-id="697:37" id="16">Rp.10</div><div class="x0-57hHcB x0 istokweb-normal-black-12px" data-id="697:41" id="22">Rp.1</div><div class="x0-MvW4Ht x0 istokweb-normal-black-12px" data-id="697:45" id="28">Rp.10</div><div class="x0-2NR5e5 x0 istokweb-normal-black-12px" data-id="697:49" id="34">Rp.10</div><div class="x0-gIQLH2 x0 istokweb-normal-black-12px" data-id="697:34" id="11">Rp.10</div><div class="x0-xP7rY6 x0 istokweb-normal-black-12px" data-id="697:38" id="17">Rp.10</div><div class="x0-RQW3hV x0 istokweb-normal-black-12px" data-id="697:42" id="23">Rp.10</div><div class="x0-uFPNkW x0 istokweb-normal-black-12px" data-id="697:46" id="29">Rp.10</div><div class="x0-J8dWeY x0 istokweb-normal-black-12px" data-id="696:50" id="35">Rp.NaN</div><div class="tahun-1-lanjutan-4cNboW tahun-1-lanjutan istokweb-normal-black-12px" data-id="536:967">Tahun 1<br><br>Lanjutan</div><div class="tahun-1-lanjutan-Fexccy tahun-1-lanjutan istokweb-normal-black-12px" data-id="536:968">Tahun 1<br><br>Lanjutan</div><div class="tahun-1-lanjutan-TRUQ9C tahun-1-lanjutan istokweb-normal-black-12px" data-id="536:969">Tahun 1<br><br>Lanjutan</div><div class="tahun-1-lanjutan-wA3K2F tahun-1-lanjutan istokweb-normal-black-12px" data-id="536:970">Tahun 1<br><br>Lanjutan</div><div class="sd-CeGUWW istokweb-normal-persian-green-13px" data-id="531:962">SD</div><div class="smp-CeGUWW istokweb-normal-persian-green-13px" data-id="531:963">SMP</div><div class="sma-CeGUWW istokweb-normal-persian-green-13px" data-id="531:964">SMA</div><div class="pt-CeGUWW istokweb-normal-persian-green-13px" data-id="531:965">PT</div></div></div><script src="launchpad-js/launchpad-banner.js" async=""></script><script defer="" src="https://animaapp.s3.amazonaws.com/static/restart-btn.min.js"></script><div id="t_preload_links"></div><!-- Code injected by live-server -->
+  <script>
+      // <![CDATA[  <-- For SVG support
+      if ('WebSocket' in window) {
+          (function () {
+              function refreshCSS() {
+                  var sheets = [].slice.call(document.getElementsByTagName("link"));
+                  var head = document.getElementsByTagName("head")[0];
+                  for (var i = 0; i < sheets.length; ++i) {
+                      var elem = sheets[i];
+                      var parent = elem.parentElement || head;
+                      parent.removeChild(elem);
+                      var rel = elem.rel;
+                      if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                          var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                          elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                      }
+                      parent.appendChild(elem);
+                  }
+              }
+              var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+              var address = protocol + window.location.host + window.location.pathname + '/ws';
+              var socket = new WebSocket(address);
+              socket.onmessage = function (msg) {
+                  if (msg.data == 'reload') window.location.reload();
+                  else if (msg.data == 'refreshcss') refreshCSS();
+              };
+              if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                  console.log('Live reload enabled.');
+                  sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+              }
+          })();
+      }
+      else {
+          console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+      }
+      // ]]>
+  </script>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const element = document.getElementById('screen');
+        const options = {
+          margin: 0,
+          filename: 'document.pdf',
+          image: { type: 'jpeg',quality: 5 },
+          html2canvas: { scale: 5 },
+          jsPDF: { unit: 'cm', format: [ 22/1.25 , 28/1.25] , orientation: 'portrait' }
+        };
+    
+        
+        //html2pdf(element,options);
+    
+    
+      });
+     
+    </script>
+     <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          // Trigger print preview when the page is loaded
+          window.print();
+      });
+  </script>
+   <script>
+    function rupiah(number) {
+    // Convert the number to a string and remove any non-digit characters
+    const cleanNumber = String(number).replace(/[^\d]/g, '');
+
+    // Convert the string back to a number
+    const numericValue = parseFloat(cleanNumber);
+
+    // Check if the numericValue is a valid number
+    if (isNaN(numericValue)) {
+        return 'NaN';
+    }
+
+    // Use toLocaleString to format the number with commas
+    const formattedNumber = numericValue.toLocaleString('id-ID');
+
+    // Return the formatted number
+    return formattedNumber;
+}
+   const currentUrl = window.location.href;
+   
+   function getVar(name) {
+     const queryString = window.location.search;
+     const urlParams = new URLSearchParams(queryString);
+     return urlParams.get(name);
+   }
+   let data = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","total","totaltb","sd","sdtb","lansd","lansdtb","tk","tktb","lantk","lantktb","smp","smptb","lansmptb","lansmptb","sma","smatb","lansma","lansmatb","kul","kultb","lankul","lankultb"];
+   for(let i = 0;i<data.length;i++){
+     let v = getVar(data[i]);
+     let el;
+     if(i==0||i==1){ el = v+"<br>";
+    }else if(i==2||i==3){
+        el = v+" %<br>";
+    }else if(i==4){
+        el = "Rp. "+rupiah(v);
+    }else{
+        if(data[i]=="total"||data[i]=="totaltb"){
+            el = v+"<br>";
+        }else{
+        let tmp = i-4;
+        if((tmp%3==0||tmp%3==2)&&i<36){
+            el = v;
+        }else{
+            el = "Rp. "+rupiah(v);
+        }
+        }
+    }
+     $(('#'+data[i])).html(el);
+   }
+   
+   </script></body></html>

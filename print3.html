@@ -1,0 +1,945 @@
+<html><head><style type="text/css">.turbo-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 9999;
+  transition:
+    width 300ms ease-out,
+    opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+</style><style id="st_globalStyles">
+/* SCROLLBAR */
+
+[dark-scroll]::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+[dark-scroll]::-webkit-scrollbar-track-piece {
+  background-color: #2b2b2b;
+  border: 1px solid #1d1d1d;
+}
+
+[dark-scroll]::-webkit-scrollbar-thumb {
+  height: 10px;
+  background-color: #4d4d4d;
+}
+[dark-scroll]::-webkit-scrollbar-thumb:hover {
+  background-color: #5a5a5a;
+}
+
+/* LOAD PROGRESS */
+
+.turbolinks-progress-bar {
+  height: 3px;
+  background-color: #ff6250;
+}
+
+/* GROUPING */
+
+[data-id].ui-selecting {
+  box-shadow: inset 0 0 0 1px #4285f4 !important;
+}
+[data-id].ui-selected {
+  box-shadow: inset 0 0 0 1px #4285f4 !important;
+}
+
+/* CURSOR */
+
+body[mode='comments'] * {
+  cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00LjkxNjQ4IDIzLjQxMDlDNS40OTE1MyAyMi45ODg3IDUuOTMxNzkgMjIuMzkzNSA2LjIzMjggMjEuNjQwN0M0Ljc5MDY5IDE5LjczODMgNCAxNy4zOTMzIDQgMTQuOTk3NUM0IDguOTM0MSA4LjkzMjgyIDQgMTUuMDAyMiA0QzIxLjA3MTcgNCAyNiA4LjkzOTE5IDI2IDE1LjAwMjVDMjYgMjEuMDY1OSAyMS4wNjcyIDI2IDE0Ljk5NzggMjZDMTIuOTg5NiAyNiAxMS4wMzUzIDI1LjQ1NTcgOS4zMjM2NyAyNC40MjMxQzguNDI5NjUgMjQuOTU3MiA3LjQxNDM0IDI1LjIyNjggNi4zMDAxOCAyNS4yMjY4QzUuOTU0MjYgMjUuMjI2OCA1LjU5OTM1IDI1LjIwMTQgNS4yNTM0MiAyNS4xNDU0QzQuOTAzIDI1LjA4OTUgNC42Mjg5NiAyNC44MDQ2IDQuNTUyNTggMjQuNDE4QzQuNDc2MjEgMjQuMDI2NCA0LjYxOTk3IDIzLjYyOTYgNC45MTY0OCAyMy40MTA5WiIgZmlsbD0iI0ZGNjI1MCIvPgo8L3N2Zz4K')
+      0 24,
+    auto !important;
+}
+
+body[mode='code'] [data-id]:not(.hidden) {
+  cursor: default;
+}
+
+/* default node state */
+
+body[mode='code'] [data-id]:not(.hidden), body[mode='comments'] [data-id]:not(.hidden) {
+  pointer-events: all;
+}
+
+/* is_image */
+
+body[mode='code'] [data-id].is_image [data-id], body[mode='comments'] [data-id].is_image [data-id] {
+  pointer-events: none !important;
+}
+
+/* without a data-id or ignored */
+
+[data-id].ignore,body[mode='code'] *:not([data-id]) {
+  pointer-events: none !important;
+}
+/* disable transforms for ignored elements */
+
+
+body[mode='code'] [data-id]:hover{
+  transform: none !important;
+}
+
+</style><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png"><meta name="og:type" content="website"><meta name="twitter:card" content="photo"><script id="anima-hotspots-script" src="hotspots.js"></script><style id="hotspots-styles">
+    .hotspot {
+      position: absolute;
+      border: 1px solid #2a9fd8;
+      background: rgba(0, 173, 255, 0.54);
+      opacity: 0;
+      z-index: -1;
+      pointer-events:none;
+    }
+  </style><style id="hide-styles">
+    .hotspot {
+      display:none !important;
+    }
+  </style><script id="s_turbo" src="https://animaapp.s3.amazonaws.com/static/turbo.es2017-umd.js"></script><script id="anima-overrides-script" src="overrides.js"></script><script src="https://animaapp.s3.amazonaws.com/js/timeline.js"></script><style>
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+@import url("https://fonts.googleapis.com/css?family=Istok+Web:700,400italic,400,700italic|Inter:700,700italic");
+
+/* The following line is used to measure usage of this code. You can remove it if you want. */
+@import url("https://px.animaapp.com/6554f9fa4d5e51248baa0500.6554f9fb4d5e51248baa0503.27zNDUH.hch.png");
+
+
+.screen textarea:focus,
+.screen input:focus {
+  outline: none;
+}
+
+.screen * {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.screen div {
+  -webkit-text-size-adjust: none;
+}
+
+.component-wrapper a {
+  display: contents;
+  pointer-events: auto;
+  text-decoration: none;
+}
+
+.component-wrapper * {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.component-wrapper a *,
+.component-wrapper input,
+.component-wrapper video,
+.component-wrapper iframe {
+  pointer-events: auto;
+}
+
+.component-wrapper.not-ready,
+.component-wrapper.not-ready * {
+  visibility: hidden !important;
+}
+
+.screen a {
+  display: contents;
+  text-decoration: none;
+}
+
+.full-width-a {
+  width: 100%;
+}
+
+.full-height-a {
+  height: 100%;
+}
+
+.container-center-vertical {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  pointer-events: none;
+}
+
+.container-center-vertical > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.container-center-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+}
+
+.container-center-horizontal > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.auto-animated div {
+  --z-index: -1;
+  opacity: 0;
+  position: absolute;
+}
+
+.auto-animated input {
+  --z-index: -1;
+  opacity: 0;
+  position: absolute;
+}
+
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+  opacity: 1;
+}
+
+.overlay-base {
+  display: none;
+  height: 100%;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.overlay-base.animate-appear {
+  align-items: center;
+  animation: reveal 0.3s ease-in-out 1 normal forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+}
+
+.overlay-base.animate-disappear {
+  animation: reveal 0.3s ease-in-out 1 reverse forwards;
+  display: block;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.overlay-base.animate-disappear * {
+  pointer-events: none;
+}
+
+@keyframes reveal {
+  from { opacity: 0 }
+ to { opacity: 1 }
+}
+
+.animate-nodelay {
+  animation-delay: 0s;
+}
+
+.align-self-flex-start {
+  align-self: flex-start;
+}
+
+.align-self-flex-end {
+  align-self: flex-end;
+}
+
+.align-self-flex-center {
+  align-self: flex-center;
+}
+
+.valign-text-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.valign-text-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+input:focus {
+  outline: none;
+}
+
+.listeners-active,
+.listeners-active * {
+  pointer-events: auto;
+}
+
+.hidden,
+.hidden * {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.smart-layers-pointers,
+.smart-layers-pointers * {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.listeners-active-click,
+.listeners-active-click * {
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+:root { 
+  --black: #000000;
+  --yellow-orange: #f8ae3e;
+ 
+  --font-size-l: 13px;
+  --font-size-m: 12px;
+  --font-size-xl: 20px;
+ 
+  --font-family-inter: "Inter", Helvetica;
+  --font-family-istok_web: "Istok Web", Helvetica;
+}
+.istokweb-normal-black-12px {
+  color: var(--black);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.istokweb-normal-black-13px {
+  color: var(--black);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.istokweb-normal-black-12px-2 {
+  color: var(--black);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+}
+
+:root {
+}
+
+
+/* screen - print-menu-3 */
+
+.print-menu-3 {
+  background-color: #ffffff;
+  height: 842px;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 595px;
+}
+
+.print-menu-3 .rectangle-116-EEVH3C {
+  background-color: #01a39e80;
+  height: 146px;
+  left: 439px;
+  position: absolute;
+  top: -3px;
+  transform: rotate(-90deg);
+  width: 212px;
+}
+
+.print-menu-3 .rectangle-117-EEVH3C {
+  background-color: #f8ae3eb2;
+  height: 146px;
+  left: 403px;
+  position: absolute;
+  top: -35px;
+  transform: rotate(-90deg);
+  width: 148px;
+}
+
+.print-menu-3 .bsi-logo-1-2-EEVH3C {
+  background-color: transparent;
+  height: 94px;
+  left: 15px;
+  position: absolute;
+  top: 0px;
+  width: 260px;
+}
+
+.print-menu-3 .assalaamualaikum-war-EEVH3C {
+  background-color: transparent;
+  height: auto;
+  left: 33px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 132px;
+  width: 530px;
+}
+
+.print-menu-3 .span0-FH9x9V {
+  color: var(--black);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-m);
+  font-style: italic;
+  font-weight: 700;
+}
+
+.print-menu-3 .span1-FH9x9V {
+}
+
+.print-menu-3 .perencana-kartika-EEVH3C {
+  background-color: transparent;
+  color: transparent;
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 700;
+  height: auto;
+  left: 34px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 239px;
+  width: 143px;
+}
+
+.print-menu-3 .span0-0beEqr {
+  font-style: normal;
+}
+
+.print-menu-3 .span1-0beEqr {
+  color: #01a39e;
+  font-style: normal;
+}
+
+.print-menu-3 .usia-20-tahun-EEVH3C {
+  background-color: transparent;
+  color: transparent;
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+  height: auto;
+  left: 34px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 256px;
+  width: 143px;
+}
+
+.print-menu-3 .span0-YaagJJ {
+  font-style: normal;
+}
+
+.print-menu-3 .span1-YaagJJ {
+  font-style: normal;
+}
+
+.print-menu-3 .span2-YaagJJ {
+  color: #01a39e;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.print-menu-3 .perencanaan-dana-pernikahan-EEVH3C {
+  background-color: transparent;
+  color: var(--yellow-orange);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 700;
+  height: auto;
+  left: 33px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 96px;
+  width: auto;
+}
+
+.print-menu-3 .rectangle-118-EEVH3C {
+  background-color: #01a39e80;
+  height: 86px;
+  left: 14px;
+  position: absolute;
+  top: 777px;
+  transform: rotate(-90deg);
+  width: 144px;
+}
+
+.print-menu-3 .rectangle-119-EEVH3C {
+  background-color: var(--yellow-orange);
+  height: 94px;
+  left: -45px;
+  position: absolute;
+  top: 817px;
+  transform: rotate(-90deg);
+  width: 144px;
+}
+
+.print-menu-3 .wassalaamualaikum-wa-EEVH3C {
+  background-color: transparent;
+  color: var(--black);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-m);
+  font-style: italic;
+  font-weight: 400;
+  height: auto;
+  left: 34px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 729px;
+  width: auto;
+}
+
+.print-menu-3 .pribadi-dan-rahasia-EEVH3C {
+  background-color: transparent;
+  color: var(--black);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-m);
+  font-style: italic;
+  font-weight: 700;
+  height: auto;
+  left: 12px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 818px;
+  width: auto;
+}
+
+.print-menu-3 .hormat-kami-perencana-keuangan-EEVH3C {
+  background-color: transparent;
+  height: auto;
+  left: 441px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 739px;
+  width: auto;
+}
+
+.print-menu-3 .span0-sLCx8v {
+}
+
+.print-menu-3 .span1-sLCx8v {
+  color: var(--black);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-m);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.print-menu-3 .span2-sLCx8v {
+}
+
+.print-menu-3 .group-130-EEVH3C {
+  background-color: transparent;
+  height: 440px;
+  left: 34px;
+  position: absolute;
+  top: 283px;
+  width: 467px;
+}
+
+.print-menu-3 .rectangle-120-8l8n81 {
+  background-color: #ffffff;
+  height: 440px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 426px;
+}
+
+.print-menu-3 .rectangle-121-8l8n81 {
+  background-color: var(--yellow-orange);
+  height: 279px;
+  left: -80px;
+  position: absolute;
+  top: 81px;
+  transform: rotate(-90deg);
+  width: 440px;
+}
+
+.print-menu-3 .biaya-pernikahan-saat-ini-8l8n81 {
+  background-color: transparent;
+  height: auto;
+  left: 19px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 11px;
+  width: 211px;
+}
+
+.print-menu-3 .berapa-tahun-lagi-anda-akan-menikah-8l8n81 {
+  background-color: transparent;
+  height: auto;
+  left: 20px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 55px;
+  width: 248px;
+}
+
+.print-menu-3 .perkiraan-tingkat-inflasi-tahun-ini-8l8n81 {
+  background-color: transparent;
+  height: auto;
+  left: 19px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 95px;
+  width: 249px;
+}
+
+.print-menu-3 .perkiraan-biaya-menikah-yang-akan-datang-8l8n81 {
+  background-color: transparent;
+  height: 38px;
+  left: 19px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 126px;
+  width: 234px;
+}
+
+.print-menu-3 .tabungan-menikah-yang-sudah-ada-8l8n81 {
+  background-color: transparent;
+  height: auto;
+  left: 19px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 174px;
+  width: 254px;
+}
+
+.print-menu-3 .harapan-hasil-invest-8l8n81 {
+  left: 19px;
+  top: 208px;
+  width: 224px;
+}
+
+.print-menu-3 .berapa-dana-menikah-8l8n81 {
+  background-color: transparent;
+  height: auto;
+  left: 18px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 255px;
+  width: 250px;
+}
+
+.print-menu-3 .kekurangan-biaya-menikah-yang-dibutuhkan-8l8n81 {
+  background-color: transparent;
+  height: auto;
+  left: 18px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 305px;
+  width: 255px;
+}
+
+.print-menu-3 .harapan-hasil-invest-X4Jc1f {
+  left: 18px;
+  top: 365px;
+  width: 288px;
+}
+
+.print-menu-3 .tabungan-per-bulan-8l8n81 {
+  background-color: transparent;
+  height: auto;
+  left: 18px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 405px;
+  width: 288px;
+}
+
+.print-menu-3 .vector-10-8l8n81 {
+  background-color: transparent;
+  height: 438px;
+  left: -1px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+}
+
+.print-menu-3 .vector-23-8l8n81 {
+  background-color: transparent;
+  height: 440px;
+  left: 426px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+}
+
+.print-menu-3 .vector-14-8l8n81 {
+  background-color: transparent;
+  height: 1px;
+  left: 0px;
+  position: absolute;
+  top: 41px;
+  width: 426px;
+}
+
+.print-menu-3 .vector-15-8l8n81 {
+  background-color: transparent;
+  height: 1px;
+  left: 0px;
+  position: absolute;
+  top: 80px;
+  width: 426px;
+}
+
+.print-menu-3 .vector-16-8l8n81 {
+  background-color: transparent;
+  height: 1px;
+  left: 0px;
+  position: absolute;
+  top: 124px;
+  width: 427px;
+}
+
+.print-menu-3 .vector-17-8l8n81 {
+  background-color: transparent;
+  height: 1px;
+  left: 0px;
+  position: absolute;
+  top: 164px;
+  width: 427px;
+}
+
+.print-menu-3 .vector-18-8l8n81 {
+  background-color: transparent;
+  height: 1px;
+  left: 0px;
+  position: absolute;
+  top: 201px;
+  width: 427px;
+}
+
+.print-menu-3 .vector-19-8l8n81 {
+  background-color: transparent;
+  height: 1px;
+  left: 0px;
+  position: absolute;
+  top: 248px;
+  width: 426px;
+}
+
+.print-menu-3 .vector-20-8l8n81 {
+  background-color: transparent;
+  height: 1px;
+  left: 0px;
+  position: absolute;
+  top: 299px;
+  width: 426px;
+}
+
+.print-menu-3 .vector-21-8l8n81 {
+  background-color: transparent;
+  height: 1px;
+  left: 0px;
+  position: absolute;
+  top: 351px;
+  width: 426px;
+}
+
+.print-menu-3 .vector-22-8l8n81 {
+  background-color: transparent;
+  height: 1px;
+  left: 0px;
+  position: absolute;
+  top: 394px;
+  width: 427px;
+}
+
+.print-menu-3 .vector-24-8l8n81 {
+  background-color: transparent;
+  height: 1px;
+  left: 0px;
+  position: absolute;
+  top: 438px;
+  width: 427px;
+}
+
+.print-menu-3 .tahun-8l8n81 {
+  background-color: transparent;
+  height: auto;
+  left: 289px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 55px;
+  width: 124px;
+}
+
+.print-menu-3 .rp-0-8l8n81 {
+  left: 294px;
+  top: 11px;
+  width: 118px;
+}
+
+.print-menu-3 .rp-0-X4Jc1f {
+  left: 296px;
+  top: 174px;
+  width: 115px;
+}
+
+.print-menu-3 .rp-0-Vwu9o9 {
+  left: 296px;
+  top: 216px;
+  width: 115px;
+}
+
+.print-menu-3 .rp-0-eAG81d {
+  left: 296px;
+  top: 266px;
+  width: 115px;
+}
+
+.print-menu-3 .rp-0-KqNwWh {
+  left: 296px;
+  top: 318px;
+  width: 115px;
+}
+
+.print-menu-3 .rp-0-86CAyl {
+  left: 296px;
+  top: 408px;
+  width: 115px;
+}
+
+.print-menu-3 .x-8l8n81 {
+  left: 306px;
+  top: 95px;
+  width: 103px;
+}
+
+.print-menu-3 .rp-0-bYEyBy {
+  left: 298px;
+  top: 135px;
+  width: 111px;
+}
+
+.print-menu-3 .x-X4Jc1f {
+  left: 313px;
+  top: 364px;
+  width: 83px;
+}
+
+.print-menu-3 .vector-13-8l8n81 {
+  background-color: transparent;
+  height: 1px;
+  left: 0px;
+  position: absolute;
+  top: -1px;
+  width: 427px;
+}
+
+.print-menu-3 .harapan-hasil-invest {
+  background-color: transparent;
+  height: auto;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+}
+
+.print-menu-3 .rp-0 {
+  background-color: transparent;
+  height: auto;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+}
+
+.print-menu-3 .x {
+  background-color: transparent;
+  height: auto;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+}
+@media print {
+  .screen {
+    zoom: 1.25;
+  }
+}
+</style><script id="anime-js-script" src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js" integrity="sha256-98Q574VkbV+PkxXCKSgL6jVq9mrVbS7uCdA+vt0sLS8=" crossorigin="anonymous"></script><script id="imgloaded-js-script" src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script></head><body style="margin: 0;background: #ffffff;"><input type="hidden" id="anPageName" name="page" value="print-menu-3"><div class="container-center-horizontal"><div class="print-menu-3 screen " data-id="570:1362" id="screen"><div class="rectangle-116-EEVH3C" data-id="570:1363"></div><div class="rectangle-117-EEVH3C" data-id="570:1364"></div><img class="bsi-logo-1-2-EEVH3C" data-id="570:1365" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6554fa2083429d8d932cf256/img/bsi-logo-1-2@2x.png" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6554fa2083429d8d932cf256/img/bsi-logo-1-2@2x.png" alt="BSI LOGO-1 2"><p class="assalaamualaikum-war-EEVH3C istokweb-normal-black-12px-2" data-id="570:1366"><span class="span0-FH9x9V">Assalaamu’alaikum Warahmatullahi Wabarakatuh.<br></span><span class="span1-FH9x9V istokweb-normal-black-12px"><br>Pernikahan sejatinya itu tidak harus mahal, namun pernikahan sekali seumur hidup ini tetap menjadi perencanaan kita untuk mewujudkan pernikahan impian. Dibawah ini adalah perhitungan biaya pernikahan sesuai dengan keinginan anda dan tetap meninjau aspek dana pernikahan di masa depan.</span></p><div class="perencana-kartika-EEVH3C" data-id="570:1368"><span class="span0-0beEqr istokweb-normal-black-12px-2">Perencana : </span><span class="span1-0beEqr" id="1">Kartika</span></div><p class="usia-20-tahun-EEVH3C" data-id="612:2"><span class="span0-YaagJJ istokweb-normal-black-12px-2">Usia</span><span class="span1-YaagJJ istokweb-normal-black-12px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </span><span class="span2-YaagJJ" id="2">20 tahun</span></p><div class="perencanaan-dana-pernikahan-EEVH3C" data-id="570:1369">Perencanaan Dana Pernikahan</div><div class="rectangle-118-EEVH3C" data-id="570:1370"></div><div class="rectangle-119-EEVH3C" data-id="570:1371"></div><div class="wassalaamualaikum-wa-EEVH3C" data-id="570:1372">Wassalaamu’alaikum warahmatullahi wabarakatuh.</div><div class="pribadi-dan-rahasia-EEVH3C" data-id="570:1373">PRIBADI DAN RAHASIA</div><div class="hormat-kami-perencana-keuangan-EEVH3C istokweb-normal-black-12px-2" data-id="570:1374"><span class="span0-sLCx8v istokweb-normal-black-12px-2">Hormat Kami<br></span><span class="span1-sLCx8v"><br><br><br></span><span class="span2-sLCx8v istokweb-normal-black-12px-2">Perencana Keuangan</span></div><div class="group-130-EEVH3C" data-id="721:3"><div data-id="570:1376" class="rectangle-120-8l8n81"></div><div class="rectangle-121-8l8n81" data-id="570:1377"></div><div class="biaya-pernikahan-saat-ini-8l8n81 istokweb-normal-black-13px" data-id="570:1378">Biaya pernikahan saat ini?</div><p class="berapa-tahun-lagi-anda-akan-menikah-8l8n81 istokweb-normal-black-13px" data-id="570:1379">Berapa tahun lagi anda akan menikah?</p><p class="perkiraan-tingkat-inflasi-tahun-ini-8l8n81 istokweb-normal-black-13px" data-id="570:1380">Perkiraan tingkat inflasi tahun ini?</p><p class="perkiraan-biaya-menikah-yang-akan-datang-8l8n81 valign-text-middle istokweb-normal-black-13px" data-id="570:1381">Perkiraan biaya menikah yang akan datang?</p><p class="tabungan-menikah-yang-sudah-ada-8l8n81 istokweb-normal-black-13px" data-id="570:1382">Tabungan menikah yang sudah ada?</p><p class="harapan-hasil-invest-8l8n81 harapan-hasil-invest istokweb-normal-black-13px" data-id="570:1383">Harapan hasil investasi tabungan menikah yang sudah ada?</p><p class="berapa-dana-menikah-8l8n81 istokweb-normal-black-13px" data-id="570:1384">Berapa dana menikah di masa depan yang sudah ada?</p><p class="kekurangan-biaya-menikah-yang-dibutuhkan-8l8n81 istokweb-normal-black-13px" data-id="570:1385">Kekurangan biaya menikah yang dibutuhkan?</p><p class="harapan-hasil-invest-X4Jc1f harapan-hasil-invest istokweb-normal-black-13px" data-id="570:1386">Harapan Hasil Investasi syariah per Tahun</p><div class="tabungan-per-bulan-8l8n81 istokweb-normal-black-13px" data-id="571:1418">Tabungan per bulan</div><img class="vector-10-8l8n81" data-id="570:1387" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-10.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-10.svg" alt="Vector 10"><img class="vector-23-8l8n81" data-id="570:1388" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-23.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-23.svg" alt="Vector 23" style="background:#FFC700;"><img class="vector-14-8l8n81" data-id="570:1390" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-14.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-14.svg" alt="Vector 14" style="background:#FFC700;"><img class="vector-15-8l8n81" data-id="570:1391" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-15.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-15.svg" alt="Vector 15" style="background:#FFC700;"><img class="vector-16-8l8n81" data-id="570:1392" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-16.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-16.svg" alt="Vector 16" style="background:#FFC700;"><img class="vector-17-8l8n81" data-id="570:1393" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-17.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-17.svg" alt="Vector 17" style="background:#FFC700;"><img class="vector-18-8l8n81" data-id="570:1394" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-18.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-18.svg" alt="Vector 18" style="background:#FFC700;"><img class="vector-19-8l8n81" data-id="570:1395" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-19.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-19.svg" alt="Vector 19" style="background:#FFC700;"><img class="vector-20-8l8n81" data-id="570:1396" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-20.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-20.svg" alt="Vector 20" style="background:#FFC700;"><img class="vector-21-8l8n81" data-id="570:1397" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-21.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-21.svg" alt="Vector 21" style="background:#FFC700;"><img class="vector-22-8l8n81" data-id="570:1398" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-22.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-22.svg" alt="Vector 22" style="background:#FFC700;"><img class="vector-24-8l8n81" data-id="571:1421" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-24.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-24.svg" alt="Vector 24" style="background:#FFC700;"><div class="tahun-8l8n81 istokweb-normal-black-12px" data-id="570:1399" id="4">.... tahun</div><div class="rp-0-8l8n81 rp-0 istokweb-normal-black-12px" data-id="570:1400" id="3">Rp. 0</div><div class="rp-0-X4Jc1f rp-0 istokweb-normal-black-12px" data-id="570:1410" id="6">Rp. 0</div><div class="rp-0-Vwu9o9 rp-0 istokweb-normal-black-12px" data-id="697:2" id="7">Rp. 0</div><div class="rp-0-eAG81d rp-0 istokweb-normal-black-12px" data-id="697:3" id="dana">Rp. 0</div><div class="rp-0-KqNwWh rp-0 istokweb-normal-black-12px" data-id="697:4" id="kurang">Rp. 0</div><div class="rp-0-86CAyl rp-0 istokweb-normal-black-12px" data-id="697:5" id="tabung">Rp. 0</div><div class="x-8l8n81 x istokweb-normal-black-12px" data-id="570:1413" id="5">... %</div><div class="rp-0-bYEyBy rp-0 istokweb-normal-black-12px" data-id="570:1414" id="total">Rp. 0</div><div class="x-X4Jc1f x istokweb-normal-black-12px" data-id="570:1416" id="8">... %</div><img class="vector-13-8l8n81" data-id="570:1417" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-13.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/65649c88934078cf338874b8/img/vector-13.svg" alt="Vector 13" style="background:#FFC700;"></div></div></div><script src="launchpad-js/launchpad-banner.js" async=""></script><script defer="" src="https://animaapp.s3.amazonaws.com/static/restart-btn.min.js"></script><div id="t_preload_links"></div></body></html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ 
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const element = document.getElementById('screen');
+      const options = {
+        margin: 0,
+        filename: 'document.pdf',
+        image: { type: 'jpeg',quality: 5 },
+        html2canvas: { scale: 5 },
+        jsPDF: { unit: 'cm', format: [ 22/1.25 , 28/1.25] , orientation: 'portrait' }
+      };
+  
+      
+     // html2pdf(element,options);
+  
+  
+    });
+   
+  </script>
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Trigger print preview when the page is loaded
+        window.print();
+    });
+</script>
+ <script>
+ const currentUrl = window.location.href;
+ 
+ function getVar(name) {
+   const queryString = window.location.search;
+   const urlParams = new URLSearchParams(queryString);
+   return urlParams.get(name);
+ }
+ //sect
+ let data = ["1","2","3","4","5","6","7","8","total","dana","kurang","tabung"];
+ for(let i = 0;i<data.length;i++){
+   console.log(getVar(data[i]));
+   let el = (i==0||i==1)? ((i==0)?getVar(data[i])+'<br>' : getVar(data[i])) : (i==3)? getVar(data[i])+' tahun' : (i==4 || i==7)? getVar(data[i])+' %' : 'Rp.'+ parseFloat(getVar(data[i])).toLocaleString('id');
+   $(('#'+data[i])).html(el);
+ }
+ 
+ </script>

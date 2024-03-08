@@ -1,0 +1,1029 @@
+<html><head><style type="text/css">.turbo-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 9999;
+  transition:
+    width 300ms ease-out,
+    opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+</style><style type="text/css">.turbo-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 9999;
+  transition:
+    width 300ms ease-out,
+    opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+</style><style id="st_globalStyles">
+/* SCROLLBAR */
+
+[dark-scroll]::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+[dark-scroll]::-webkit-scrollbar-track-piece {
+  background-color: #2b2b2b;
+  border: 1px solid #1d1d1d;
+}
+
+[dark-scroll]::-webkit-scrollbar-thumb {
+  height: 10px;
+  background-color: #4d4d4d;
+}
+[dark-scroll]::-webkit-scrollbar-thumb:hover {
+  background-color: #5a5a5a;
+}
+
+/* LOAD PROGRESS */
+
+.turbolinks-progress-bar {
+  height: 3px;
+  background-color: #ff6250;
+}
+
+/* GROUPING */
+
+[data-id].ui-selecting {
+  box-shadow: inset 0 0 0 1px #4285f4 !important;
+}
+[data-id].ui-selected {
+  box-shadow: inset 0 0 0 1px #4285f4 !important;
+}
+
+/* CURSOR */
+
+body[mode='comments'] * {
+  cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00LjkxNjQ4IDIzLjQxMDlDNS40OTE1MyAyMi45ODg3IDUuOTMxNzkgMjIuMzkzNSA2LjIzMjggMjEuNjQwN0M0Ljc5MDY5IDE5LjczODMgNCAxNy4zOTMzIDQgMTQuOTk3NUM0IDguOTM0MSA4LjkzMjgyIDQgMTUuMDAyMiA0QzIxLjA3MTcgNCAyNiA4LjkzOTE5IDI2IDE1LjAwMjVDMjYgMjEuMDY1OSAyMS4wNjcyIDI2IDE0Ljk5NzggMjZDMTIuOTg5NiAyNiAxMS4wMzUzIDI1LjQ1NTcgOS4zMjM2NyAyNC40MjMxQzguNDI5NjUgMjQuOTU3MiA3LjQxNDM0IDI1LjIyNjggNi4zMDAxOCAyNS4yMjY4QzUuOTU0MjYgMjUuMjI2OCA1LjU5OTM1IDI1LjIwMTQgNS4yNTM0MiAyNS4xNDU0QzQuOTAzIDI1LjA4OTUgNC42Mjg5NiAyNC44MDQ2IDQuNTUyNTggMjQuNDE4QzQuNDc2MjEgMjQuMDI2NCA0LjYxOTk3IDIzLjYyOTYgNC45MTY0OCAyMy40MTA5WiIgZmlsbD0iI0ZGNjI1MCIvPgo8L3N2Zz4K')
+      0 24,
+    auto !important;
+}
+
+body[mode='code'] [data-id]:not(.hidden) {
+  cursor: default;
+}
+
+/* default node state */
+
+body[mode='code'] [data-id]:not(.hidden), body[mode='comments'] [data-id]:not(.hidden) {
+  pointer-events: all;
+}
+
+/* is_image */
+
+body[mode='code'] [data-id].is_image [data-id], body[mode='comments'] [data-id].is_image [data-id] {
+  pointer-events: none !important;
+}
+
+/* without a data-id or ignored */
+
+[data-id].ignore,body[mode='code'] *:not([data-id]) {
+  pointer-events: none !important;
+}
+/* disable transforms for ignored elements */
+
+
+body[mode='code'] [data-id]:hover{
+  transform: none !important;
+}
+
+</style><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png"><meta name="og:type" content="website"><meta name="twitter:card" content="photo"><script id="anima-hotspots-script" src="hotspots.js"></script><style id="hotspots-styles">
+    .hotspot {
+      position: absolute;
+      border: 1px solid #2a9fd8;
+      background: rgba(0, 173, 255, 0.54);
+      opacity: 0;
+      z-index: -1;
+      pointer-events:none;
+    }
+  </style><style id="hide-styles">
+    .hotspot {
+      display:none !important;
+    }
+  </style><script id="s_turbo" src="https://animaapp.s3.amazonaws.com/static/turbo.es2017-umd.js"></script><script id="anima-overrides-script" src="overrides.js"></script><script src="https://animaapp.s3.amazonaws.com/js/timeline.js"></script><style>
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+@import url("https://fonts.googleapis.com/css?family=Istok+Web:700,400italic,400,700italic|Inter:700,700italic");
+
+/* The following line is used to measure usage of this code. You can remove it if you want. */
+@import url("https://px.animaapp.com/6554f9fa4d5e51248baa0500.6554f9fb4d5e51248baa0503.27zNDUH.hch.png");
+
+
+.screen textarea:focus,
+.screen input:focus {
+  outline: none;
+}
+
+.screen * {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.screen div {
+  -webkit-text-size-adjust: none;
+}
+
+.component-wrapper a {
+  display: contents;
+  pointer-events: auto;
+  text-decoration: none;
+}
+
+.component-wrapper * {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.component-wrapper a *,
+.component-wrapper input,
+.component-wrapper video,
+.component-wrapper iframe {
+  pointer-events: auto;
+}
+
+.component-wrapper.not-ready,
+.component-wrapper.not-ready * {
+  visibility: hidden !important;
+}
+
+.screen a {
+  display: contents;
+  text-decoration: none;
+}
+
+.full-width-a {
+  width: 100%;
+}
+
+.full-height-a {
+  height: 100%;
+}
+
+.container-center-vertical {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  pointer-events: none;
+}
+
+.container-center-vertical > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.container-center-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+}
+
+.container-center-horizontal > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.auto-animated div {
+  --z-index: -1;
+  opacity: 0;
+  position: absolute;
+}
+
+.auto-animated input {
+  --z-index: -1;
+  opacity: 0;
+  position: absolute;
+}
+
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+  opacity: 1;
+}
+
+.overlay-base {
+  display: none;
+  height: 100%;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.overlay-base.animate-appear {
+  align-items: center;
+  animation: reveal 0.3s ease-in-out 1 normal forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+}
+
+.overlay-base.animate-disappear {
+  animation: reveal 0.3s ease-in-out 1 reverse forwards;
+  display: block;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.overlay-base.animate-disappear * {
+  pointer-events: none;
+}
+
+@keyframes reveal {
+  from { opacity: 0 }
+ to { opacity: 1 }
+}
+
+.animate-nodelay {
+  animation-delay: 0s;
+}
+
+.align-self-flex-start {
+  align-self: flex-start;
+}
+
+.align-self-flex-end {
+  align-self: flex-end;
+}
+
+.align-self-flex-center {
+  align-self: flex-center;
+}
+
+.valign-text-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.valign-text-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+input:focus {
+  outline: none;
+}
+
+.listeners-active,
+.listeners-active * {
+  pointer-events: auto;
+}
+
+.hidden,
+.hidden * {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.smart-layers-pointers,
+.smart-layers-pointers * {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.listeners-active-click,
+.listeners-active-click * {
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+:root { 
+  --black: #000000;
+  --white: #ffffff;
+  --yellow-orange: #f8ae3e;
+ 
+  --font-size-l: 13px;
+  --font-size-m: 12px;
+  --font-size-xl: 20px;
+ 
+  --font-family-inter: "Inter", Helvetica;
+  --font-family-istok_web: "Istok Web", Helvetica;
+}
+.istokweb-normal-black-12px {
+  color: var(--black);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.istokweb-normal-black-13px {
+  color: var(--black);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.istokweb-normal-black-12px-2 {
+  color: var(--black);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+}
+
+:root {
+}
+
+
+/* screen - print-menu-7 */
+
+.print-menu-7 {
+  background-color: var(--white);
+  height: 842px;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 595px;
+}
+
+.print-menu-7 .rectangle-116-555peh {
+  background-color: #01a39e80;
+  height: 146px;
+  left: 439px;
+  position: absolute;
+  top: -3px;
+  transform: rotate(-90deg);
+  width: 212px;
+}
+
+.print-menu-7 .rectangle-117-555peh {
+  background-color: #f8ae3eb2;
+  height: 146px;
+  left: 371px;
+  position: absolute;
+  top: -67px;
+  transform: rotate(-90deg);
+  width: 212px;
+}
+
+.print-menu-7 .bsi-logo-1-2-555peh {
+  background-color: transparent;
+  height: 94px;
+  left: 15px;
+  position: absolute;
+  top: 0px;
+  width: 260px;
+}
+
+.print-menu-7 .assalaamualaikum-war-555peh {
+  background-color: transparent;
+  height: auto;
+  left: 33px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 132px;
+  width: 530px;
+}
+
+.print-menu-7 .span0-eIbqFb {
+  color: var(--black);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-m);
+  font-style: italic;
+  font-weight: 700;
+}
+
+.print-menu-7 .span1-eIbqFb {
+}
+
+.print-menu-7 .perencana-kartika-usia-20-tahun-555peh {
+  background-color: transparent;
+  color: transparent;
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+  height: auto;
+  left: 33px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 223px;
+  width: 143px;
+}
+
+.print-menu-7 .span0-GZouyn {
+  font-style: normal;
+}
+
+.print-menu-7 .span1-GZouyn {
+  color: #01a39e;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.print-menu-7 .span2-GZouyn {
+  font-style: normal;
+}
+
+.print-menu-7 .span3-GZouyn {
+  font-style: normal;
+}
+
+.print-menu-7 .span4-GZouyn {
+  color: #01a39e;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.print-menu-7 .perencanaan-dana-ibadah-haji-555peh {
+  background-color: transparent;
+  color: var(--yellow-orange);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 700;
+  height: auto;
+  left: 33px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 96px;
+  width: auto;
+}
+
+.print-menu-7 .rectangle-118-555peh {
+  background-color: #01a39e80;
+  height: 86px;
+  left: 14px;
+  position: absolute;
+  top: 777px;
+  transform: rotate(-90deg);
+  width: 144px;
+}
+
+.print-menu-7 .rectangle-119-555peh {
+  background-color: var(--yellow-orange);
+  height: 94px;
+  left: -45px;
+  position: absolute;
+  top: 817px;
+  transform: rotate(-90deg);
+  width: 144px;
+}
+
+.print-menu-7 .wassalaamualaikum-wa-555peh {
+  background-color: transparent;
+  color: var(--black);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-m);
+  font-style: italic;
+  font-weight: 400;
+  height: auto;
+  left: 34px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 739px;
+  width: auto;
+}
+
+.print-menu-7 .pribadi-dan-rahasia-555peh {
+  background-color: transparent;
+  color: var(--black);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-m);
+  font-style: italic;
+  font-weight: 700;
+  height: auto;
+  left: 12px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 818px;
+  width: auto;
+}
+
+.print-menu-7 .hormat-kami-perencana-keuangan-555peh {
+  background-color: transparent;
+  height: auto;
+  left: 441px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 739px;
+  width: auto;
+}
+
+.print-menu-7 .span0-CSiyC2 {
+}
+
+.print-menu-7 .span1-CSiyC2 {
+  color: var(--black);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-m);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.print-menu-7 .span2-CSiyC2 {
+}
+
+.print-menu-7 .group-125-555peh {
+  background-color: transparent;
+  height: 465px;
+  left: 33px;
+  position: absolute;
+  top: 264px;
+  width: 480px;
+}
+
+.print-menu-7 .rectangle-120-fjTxMp {
+  background-color: var(--white);
+  height: 361px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 435px;
+}
+
+.print-menu-7 .rectangle-121-fjTxMp {
+  background-color: var(--yellow-orange);
+  height: 283px;
+  left: -79px;
+  position: absolute;
+  top: 80px;
+  transform: rotate(-90deg);
+  width: 443px;
+}
+
+.print-menu-7 .biaya-haji-saat-ini-fjTxMp {
+  background-color: transparent;
+  height: auto;
+  left: 23px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 13px;
+  width: 261px;
+}
+
+.print-menu-7 .jangka-waktu-untuk-mendaftar-fjTxMp {
+  background-color: transparent;
+  height: auto;
+  left: 23px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 50px;
+  width: 220px;
+}
+
+.print-menu-7 .kenaikan-biaya-haji-fjTxMp {
+  background-color: transparent;
+  height: auto;
+  left: 23px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 90px;
+  width: 249px;
+}
+
+.print-menu-7 .perkiraan-biaya-haji-yang-akan-datang-fjTxMp {
+  background-color: transparent;
+  height: auto;
+  left: 23px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 131px;
+  width: 254px;
+}
+
+.print-menu-7 .harapan-hasil-investasi-fjTxMp {
+  background-color: transparent;
+  height: auto;
+  left: 23px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 173px;
+  width: 224px;
+}
+
+.print-menu-7 .tabungan-uang-muka-per-bulan-fjTxMp {
+  background-color: transparent;
+  height: auto;
+  left: 23px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 212px;
+  width: 249px;
+}
+
+.print-menu-7 .jangka-waktu-menunaikan-ibadah-haji-fjTxMp {
+  background-color: transparent;
+  height: auto;
+  left: 23px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 253px;
+  width: 249px;
+}
+
+.print-menu-7 .kekurangan-biaya-haji-fjTxMp {
+  background-color: transparent;
+  height: auto;
+  left: 23px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 289px;
+  width: 255px;
+}
+
+.print-menu-7 .dana-yang-disiapkan-fjTxMp {
+  top: 323px;
+}
+
+.print-menu-7 .vector-10-fjTxMp {
+  background-color: transparent;
+  height: 464px;
+  left: -1px;
+  position: absolute;
+  top: 0px;
+  width: 2px;
+}
+
+.print-menu-7 .tahun-fjTxMp {
+  background-color: transparent;
+  height: auto;
+  left: 284px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 48px;
+  width: 152px;
+}
+
+.print-menu-7 .rp-0-fjTxMp {
+  top: 11px;
+}
+
+.print-menu-7 .rp-0-ACCtai {
+  top: 91px;
+}
+
+.print-menu-7 .rp-0-OxiCuF {
+  top: 131px;
+}
+
+.print-menu-7 .rp-0-KFiib9 {
+  top: 211px;
+}
+
+.print-menu-7 .rp-0-Ll2fmC {
+  top: 292px;
+}
+
+.print-menu-7 .rp-0-xzvhfj {
+  top: 252px;
+}
+
+.print-menu-7 .rp-0-P5Ydx7 {
+  top: 333px;
+}
+
+.print-menu-7 .x-fjTxMp {
+  background-color: transparent;
+  height: auto;
+  left: 284px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 174px;
+  width: 151px;
+}
+
+.print-menu-7 .vector-13-fjTxMp {
+  background-color: transparent;
+  height: 2px;
+  left: 0px;
+  position: absolute;
+  top: -1px;
+  width: 436px;
+}
+
+.print-menu-7 .vector-25-fjTxMp {
+  background-color: transparent;
+  height: 2px;
+  left: 0px;
+  position: absolute;
+  top: 37px;
+  width: 435px;
+}
+
+.print-menu-7 .vector-26-fjTxMp {
+  background-color: transparent;
+  height: 2px;
+  left: 0px;
+  position: absolute;
+  top: 76px;
+  width: 436px;
+}
+
+.print-menu-7 .vector-27-fjTxMp {
+  background-color: transparent;
+  height: 2px;
+  left: 0px;
+  position: absolute;
+  top: 118px;
+  width: 435px;
+}
+
+.print-menu-7 .vector-28-fjTxMp {
+  background-color: transparent;
+  height: 2px;
+  left: 0px;
+  position: absolute;
+  top: 159px;
+  width: 435px;
+}
+
+.print-menu-7 .vector-29-fjTxMp {
+  background-color: transparent;
+  height: 2px;
+  left: 0px;
+  position: absolute;
+  top: 200px;
+  width: 435px;
+}
+
+.print-menu-7 .vector-30-fjTxMp {
+  background-color: transparent;
+  height: 2px;
+  left: 0px;
+  position: absolute;
+  top: 238px;
+  width: 436px;
+}
+
+.print-menu-7 .vector-31-fjTxMp {
+  background-color: transparent;
+  height: 2px;
+  left: 0px;
+  position: absolute;
+  top: 280px;
+  width: 436px;
+}
+
+.print-menu-7 .vector-33-fjTxMp {
+  background-color: transparent;
+  height: 2px;
+  left: 0px;
+  position: absolute;
+  top: 317px;
+  width: 436px;
+}
+
+.print-menu-7 .vector-32-fjTxMp {
+  background-color: transparent;
+  height: 2px;
+  left: 1px;
+  position: absolute;
+  top: 361px;
+  width: 434px;
+}
+
+.print-menu-7 .rectangle-122-fjTxMp {
+  background-color: var(--white);
+  height: 103px;
+  left: 0px;
+  position: absolute;
+  top: 362px;
+  width: 435px;
+}
+
+.print-menu-7 .rectangle-123-fjTxMp {
+  background-color: var(--yellow-orange);
+  height: 103px;
+  left: 1px;
+  position: absolute;
+  top: 362px;
+  width: 283px;
+}
+
+.print-menu-7 .rp-0-TCiIap {
+  top: 379px;
+}
+
+.print-menu-7 .rp-0-BduG8S {
+  top: 429px;
+}
+
+.print-menu-7 .vector-34-fjTxMp {
+  background-color: transparent;
+  height: 2px;
+  left: 1px;
+  position: absolute;
+  top: 412px;
+  width: 434px;
+}
+
+.print-menu-7 .dana-kekurangan-ibad-fjTxMp {
+  background-color: transparent;
+  height: auto;
+  left: 23px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 368px;
+  width: 255px;
+}
+
+.print-menu-7 .dana-yang-disiapkan-ACCtai {
+  top: 421px;
+}
+
+.print-menu-7 .vector-35-fjTxMp {
+  background-color: transparent;
+  height: 2px;
+  left: 0px;
+  position: absolute;
+  top: 463px;
+  width: 435px;
+}
+
+.print-menu-7 .vector-36-fjTxMp {
+  background-color: transparent;
+  height: 464px;
+  left: 435px;
+  position: absolute;
+  top: 0px;
+  width: 2px;
+}
+
+.print-menu-7 .dana-yang-disiapkan {
+  background-color: transparent;
+  height: auto;
+  left: 23px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  width: 255px;
+}
+
+.print-menu-7 .rp-0 {
+  background-color: transparent;
+  height: auto;
+  left: 284px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  width: 151px;
+}
+@media print {
+    .screen {
+      zoom: 1.25;
+    }
+  }
+</style><script id="anime-js-script" src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js" integrity="sha256-98Q574VkbV+PkxXCKSgL6jVq9mrVbS7uCdA+vt0sLS8=" crossorigin="anonymous"></script><script id="imgloaded-js-script" src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script><script id="imgloaded-js-script" src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script></head><body style="margin: 0;background: #ffffff;"><input type="hidden" id="anPageName" name="page" value="print-menu-7"><div class="container-center-horizontal"><div class="print-menu-7 screen " data-id="536:1251" id="screen"><div class="rectangle-116-555peh" data-id="536:1252"></div><div class="rectangle-117-555peh" data-id="536:1253"></div><img class="bsi-logo-1-2-555peh" data-id="536:1254" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6554fa2083429d8d932cf256/img/bsi-logo-1-2@2x.png" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6554fa2083429d8d932cf256/img/bsi-logo-1-2@2x.png" alt="BSI LOGO-1 2"><p class="assalaamualaikum-war-555peh istokweb-normal-black-12px-2" data-id="536:1255"><span class="span0-eIbqFb">Assalaamu’alaikum Warahmatullahi Wabarakatuh.<br></span><span class="span1-eIbqFb istokweb-normal-black-12px"><br>Menunaikan ibadah haji termasuk dalam lima rukun islam dan wajib bagi muslim yang mampu. Di bawah ini adalah perhitungan untuk pemenuhan dana ibadah haji dengan memperhatikan aspek kenaikan biaya dan jangka waktu yangg optimal untuk mempersiapkan uang muka.</span></p><p class="perencana-kartika-usia-20-tahun-555peh" data-id="536:1257"><span class="span0-GZouyn istokweb-normal-black-12px-2">Perencana : </span><span class="span1-GZouyn" id="1">Dafa<br></span><span class="span2-GZouyn istokweb-normal-black-12px-2">Usia</span><span class="span3-GZouyn istokweb-normal-black-12px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </span><span class="span4-GZouyn" id="2">20 tahun<br></span></p><div class="perencanaan-dana-ibadah-haji-555peh" data-id="536:1258">Perencanaan Dana Ibadah Haji</div><div class="rectangle-118-555peh" data-id="536:1259"></div><div class="rectangle-119-555peh" data-id="536:1260"></div><div class="wassalaamualaikum-wa-555peh" data-id="536:1261">Wassalaamu’alaikum warahmatullahi wabarakatuh.</div><div class="pribadi-dan-rahasia-555peh" data-id="536:1262">PRIBADI DAN RAHASIA</div><div class="hormat-kami-perencana-keuangan-555peh istokweb-normal-black-12px-2" data-id="536:1263"><span class="span0-CSiyC2 istokweb-normal-black-12px-2">Hormat Kami<br></span><span class="span1-CSiyC2"><br><br><br></span><span class="span2-CSiyC2 istokweb-normal-black-12px-2">Perencana Keuangan</span></div><div class="group-125-555peh" data-id="697:82"><div class="rectangle-120-fjTxMp" data-id="536:1265"></div><div class="rectangle-121-fjTxMp" data-id="536:1266"></div><div class="biaya-haji-saat-ini-fjTxMp istokweb-normal-black-13px" data-id="536:1267">Biaya Haji Saat Ini</div><div class="jangka-waktu-untuk-mendaftar-fjTxMp istokweb-normal-black-13px" data-id="536:1268">Jangka Waktu untuk mendaftar</div><div class="kenaikan-biaya-haji-fjTxMp istokweb-normal-black-13px" data-id="536:1269">Kenaikan Biaya Haji</div><p class="perkiraan-biaya-haji-yang-akan-datang-fjTxMp istokweb-normal-black-13px" data-id="536:1270">Perkiraan Biaya Haji yang akan datang</p><div class="harapan-hasil-investasi-fjTxMp istokweb-normal-black-13px" data-id="536:1271">Harapan Hasil Investasi</div><p class="tabungan-uang-muka-per-bulan-fjTxMp istokweb-normal-black-13px" data-id="536:1272">Tabungan Uang Muka per Bulan</p><p class="jangka-waktu-menunaikan-ibadah-haji-fjTxMp istokweb-normal-black-13px" data-id="536:1273">jangka Waktu Menunaikan Ibadah Haji</p><div class="kekurangan-biaya-haji-fjTxMp istokweb-normal-black-13px" data-id="536:1274">Kekurangan Biaya Haji</div><p class="dana-yang-disiapkan-fjTxMp dana-yang-disiapkan istokweb-normal-black-13px" data-id="536:1296">Dana yang disiapkan untuk keluarga di Rumah</p><img class="vector-10-fjTxMp" data-id="536:1275" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-10.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-10.svg" alt="Vector 10" style="background:#FFC700;"><div class="tahun-fjTxMp istokweb-normal-black-12px" data-id="536:1278" id="4">Rp. 2</div><div class="rp-0-fjTxMp rp-0 istokweb-normal-black-12px" data-id="536:1279" id="3">100000000 %<br></div><div class="rp-0-ACCtai rp-0 istokweb-normal-black-12px" data-id="697:73" id="5">10 %<br></div><div class="rp-0-OxiCuF rp-0 istokweb-normal-black-12px" data-id="697:74" id="biaya">Rp. 0</div><div class="rp-0-KFiib9 rp-0 istokweb-normal-black-12px" data-id="697:75" id="6">50000000 %<br></div><div class="rp-0-Ll2fmC rp-0 istokweb-normal-black-12px" data-id="697:76" id="total">Rp. 0</div><div class="rp-0-xzvhfj rp-0 istokweb-normal-black-12px" data-id="697:80" id="8">10 %<br></div><div class="rp-0-P5Ydx7 rp-0 istokweb-normal-black-12px" data-id="697:77" id="9">Rp. 4</div><div class="x-fjTxMp istokweb-normal-black-12px" data-id="536:1282" id="7">.... %</div><img class="vector-13-fjTxMp" data-id="536:1286" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-13.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-13.svg" alt="Vector 13" style="background:#FFC700;"><img class="vector-25-fjTxMp" data-id="536:1287" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-25.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-25.svg" alt="Vector 25" style="background:#FFC700;"><img class="vector-26-fjTxMp" data-id="536:1288" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-26.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-26.svg" alt="Vector 26" style="background:#FFC700;"><img class="vector-27-fjTxMp" data-id="536:1289" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-27.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-27.svg" alt="Vector 27" style="background:#FFC700;"><img class="vector-28-fjTxMp" data-id="536:1290" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-28.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-28.svg" alt="Vector 28" style="background:#FFC700;"><img class="vector-29-fjTxMp" data-id="536:1291" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-29.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-29.svg" alt="Vector 29" style="background:#FFC700;"><img class="vector-30-fjTxMp" data-id="536:1292" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-30.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-30.svg" alt="Vector 30" style="background:#FFC700;"><img class="vector-31-fjTxMp" data-id="536:1293" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-31.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-31.svg" alt="Vector 31" style="background:#FFC700;"><img class="vector-33-fjTxMp" data-id="536:1295" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-33.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-33.svg" alt="Vector 33" style="background:#FFC700;"><img class="vector-32-fjTxMp" data-id="536:1294" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-32.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-32.svg" alt="Vector 32" style="background:#FFC700;"><div class="rectangle-122-fjTxMp" data-id="536:1298"></div><div class="rectangle-123-fjTxMp" data-id="536:1299"></div><div class="rp-0-TCiIap rp-0 istokweb-normal-black-12px" data-id="697:78" id="kurangklg">Rp. 0</div><div class="rp-0-BduG8S rp-0 istokweb-normal-black-12px" data-id="697:79" id="tabungkrg">Rp. 0</div><img class="vector-34-fjTxMp" data-id="536:1300" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-34.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-34.svg" alt="Vector 34" style="background:#FFC700;"><p class="dana-kekurangan-ibad-fjTxMp istokweb-normal-black-13px" data-id="536:1302">Dana Kekurangan ibadah dan persiapan bagi keluarga</p><p class="dana-yang-disiapkan-ACCtai dana-yang-disiapkan istokweb-normal-black-13px" data-id="536:1303">Tabungan Kekurangan Biaya Haji per Bulan</p><img class="vector-35-fjTxMp" data-id="536:1301" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-28.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-28.svg" alt="Vector 35" style="background:#FFC700;"><img class="vector-36-fjTxMp" data-id="656:7" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-36.svg" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6565d22679db752a5157bdf7/img/vector-36.svg" alt="Vector 36" style="background:#FFC700;"></div></div></div><script src="launchpad-js/launchpad-banner.js" async=""></script><script defer="" src="https://animaapp.s3.amazonaws.com/static/restart-btn.min.js"></script><div id="t_preload_links"></div><!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+ document.addEventListener('DOMContentLoaded', function () {
+   const element = document.getElementById('screen');
+   const options = {
+     margin: 0,
+     filename: 'document.pdf',
+     image: { type: 'jpeg',quality: 1 },
+     html2canvas: { scale: 5 },
+     jsPDF: { unit: 'px', format: [ 595 , 842] , orientation: 'portrait' }
+   };
+
+   
+   //html2pdf(element,options);
+
+
+ });
+
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      // Trigger print preview when the page is loaded
+      window.print();
+  });
+</script>
+<script>
+  function rupiah(number) {
+    number = parseInt(number);
+    // Convert the number to a string and remove any non-digit characters
+    const cleanNumber = String(number).replace(/[^\d]/g, '');
+
+    // Convert the string back to a number
+    const numericValue = parseFloat(cleanNumber);
+
+    // Check if the numericValue is a valid number
+    if (isNaN(numericValue)) {
+        return 'NaN';
+    }
+
+    // Use toLocaleString to format the number with commas
+    const formattedNumber = numericValue.toLocaleString('id-ID');
+
+    // Return the formatted number
+    return formattedNumber;
+}
+const currentUrl = window.location.href;
+
+function getVar(name) {
+ const queryString = window.location.search;
+ const urlParams = new URLSearchParams(queryString);
+ return urlParams.get(name);
+}
+let data = ["1","2","3","4","5","6","7","8","9","kurangklg","total","tabung","biaya","tabungkrg"];
+for(let i = 0;i<data.length;i++){
+ let v = getVar(data[i]);
+ let el;
+ if(i==0||i==1||i==3||i==7){ el =  (i==3||i==1||i==7)? v+" tahun<br>" : v+"<br>";
+}else if(i==6){
+    el = v+" %<br>";
+}else {
+    el = "Rp. "+rupiah(v);
+}
+ $(('#'+data[i])).html(el);
+}
+
+</script><!-- Code inje--></body></html>

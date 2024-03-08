@@ -1,0 +1,1028 @@
+<html><head><style type="text/css">.turbo-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 9999;
+  transition:
+    width 300ms ease-out,
+    opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+</style><style id="st_globalStyles">
+/* SCROLLBAR */
+
+[dark-scroll]::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+[dark-scroll]::-webkit-scrollbar-track-piece {
+  background-color: #2b2b2b;
+  border: 1px solid #1d1d1d;
+}
+
+[dark-scroll]::-webkit-scrollbar-thumb {
+  height: 10px;
+  background-color: #4d4d4d;
+}
+[dark-scroll]::-webkit-scrollbar-thumb:hover {
+  background-color: #5a5a5a;
+}
+
+/* LOAD PROGRESS */
+
+.turbolinks-progress-bar {
+  height: 3px;
+  background-color: #ff6250;
+}
+
+/* GROUPING */
+
+[data-id].ui-selecting {
+  box-shadow: inset 0 0 0 1px #4285f4 !important;
+}
+[data-id].ui-selected {
+  box-shadow: inset 0 0 0 1px #4285f4 !important;
+}
+
+/* CURSOR */
+
+body[mode='comments'] * {
+  cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00LjkxNjQ4IDIzLjQxMDlDNS40OTE1MyAyMi45ODg3IDUuOTMxNzkgMjIuMzkzNSA2LjIzMjggMjEuNjQwN0M0Ljc5MDY5IDE5LjczODMgNCAxNy4zOTMzIDQgMTQuOTk3NUM0IDguOTM0MSA4LjkzMjgyIDQgMTUuMDAyMiA0QzIxLjA3MTcgNCAyNiA4LjkzOTE5IDI2IDE1LjAwMjVDMjYgMjEuMDY1OSAyMS4wNjcyIDI2IDE0Ljk5NzggMjZDMTIuOTg5NiAyNiAxMS4wMzUzIDI1LjQ1NTcgOS4zMjM2NyAyNC40MjMxQzguNDI5NjUgMjQuOTU3MiA3LjQxNDM0IDI1LjIyNjggNi4zMDAxOCAyNS4yMjY4QzUuOTU0MjYgMjUuMjI2OCA1LjU5OTM1IDI1LjIwMTQgNS4yNTM0MiAyNS4xNDU0QzQuOTAzIDI1LjA4OTUgNC42Mjg5NiAyNC44MDQ2IDQuNTUyNTggMjQuNDE4QzQuNDc2MjEgMjQuMDI2NCA0LjYxOTk3IDIzLjYyOTYgNC45MTY0OCAyMy40MTA5WiIgZmlsbD0iI0ZGNjI1MCIvPgo8L3N2Zz4K')
+      0 24,
+    auto !important;
+}
+
+body[mode='code'] [data-id]:not(.hidden) {
+  cursor: default;
+}
+
+/* default node state */
+
+body[mode='code'] [data-id]:not(.hidden), body[mode='comments'] [data-id]:not(.hidden) {
+  pointer-events: all;
+}
+
+/* is_image */
+
+body[mode='code'] [data-id].is_image [data-id], body[mode='comments'] [data-id].is_image [data-id] {
+  pointer-events: none !important;
+}
+
+/* without a data-id or ignored */
+
+[data-id].ignore,body[mode='code'] *:not([data-id]) {
+  pointer-events: none !important;
+}
+/* disable transforms for ignored elements */
+
+
+body[mode='code'] [data-id]:hover{
+  transform: none !important;
+}
+
+</style><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png"><meta name="og:type" content="website"><meta name="twitter:card" content="photo"><script id="anima-hotspots-script" src="hotspots.js"></script><style id="hotspots-styles">
+    .hotspot {
+      position: absolute;
+      border: 1px solid #2a9fd8;
+      background: rgba(0, 173, 255, 0.54);
+      opacity: 0;
+      z-index: -1;
+      pointer-events:none;
+    }
+  </style><style id="hide-styles">
+    .hotspot {
+      display:none !important;
+    }
+  </style><script id="s_turbo" src="https://animaapp.s3.amazonaws.com/static/turbo.es2017-umd.js"></script><script id="anima-overrides-script" src="overrides.js"></script><script src="https://animaapp.s3.amazonaws.com/js/timeline.js"></script><style>
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+@import url("https://fonts.googleapis.com/css?family=Istok+Web:700,400italic,400,700italic|Inter:700,700italic");
+
+/* The following line is used to measure usage of this code. You can remove it if you want. */
+@import url("https://px.animaapp.com/6554f9fa4d5e51248baa0500.6554f9fb4d5e51248baa0503.27zNDUH.hch.png");
+
+
+.screen textarea:focus,
+.screen input:focus {
+  outline: none;
+}
+
+.screen * {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.screen div {
+  -webkit-text-size-adjust: none;
+}
+
+.component-wrapper a {
+  display: contents;
+  pointer-events: auto;
+  text-decoration: none;
+}
+
+.component-wrapper * {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.component-wrapper a *,
+.component-wrapper input,
+.component-wrapper video,
+.component-wrapper iframe {
+  pointer-events: auto;
+}
+
+.component-wrapper.not-ready,
+.component-wrapper.not-ready * {
+  visibility: hidden !important;
+}
+
+.screen a {
+  display: contents;
+  text-decoration: none;
+}
+
+.full-width-a {
+  width: 100%;
+}
+
+.full-height-a {
+  height: 100%;
+}
+
+.container-center-vertical {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  pointer-events: none;
+}
+
+.container-center-vertical > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.container-center-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+}
+
+.container-center-horizontal > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.auto-animated div {
+  --z-index: -1;
+  opacity: 0;
+  position: absolute;
+}
+
+.auto-animated input {
+  --z-index: -1;
+  opacity: 0;
+  position: absolute;
+}
+
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+  opacity: 1;
+}
+
+.overlay-base {
+  display: none;
+  height: 100%;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.overlay-base.animate-appear {
+  align-items: center;
+  animation: reveal 0.3s ease-in-out 1 normal forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+}
+
+.overlay-base.animate-disappear {
+  animation: reveal 0.3s ease-in-out 1 reverse forwards;
+  display: block;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.overlay-base.animate-disappear * {
+  pointer-events: none;
+}
+
+@keyframes reveal {
+  from { opacity: 0 }
+ to { opacity: 1 }
+}
+
+.animate-nodelay {
+  animation-delay: 0s;
+}
+
+.align-self-flex-start {
+  align-self: flex-start;
+}
+
+.align-self-flex-end {
+  align-self: flex-end;
+}
+
+.align-self-flex-center {
+  align-self: flex-center;
+}
+
+.valign-text-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.valign-text-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+input:focus {
+  outline: none;
+}
+
+.listeners-active,
+.listeners-active * {
+  pointer-events: auto;
+}
+
+.hidden,
+.hidden * {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.smart-layers-pointers,
+.smart-layers-pointers * {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.listeners-active-click,
+.listeners-active-click * {
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+:root { 
+  --black: #000000;
+  --supernova: #ffc600;
+  --white: #ffffff;
+  --yellow-orange: #f8ae3e;
+ 
+  --font-size-l: 13px;
+  --font-size-m: 12px;
+  --font-size-xl: 14px;
+  --font-size-xxl: 20px;
+ 
+  --font-family-inter: "Inter", Helvetica;
+  --font-family-istok_web: "Istok Web", Helvetica;
+}
+.istokweb-normal-black-12px {
+  color: var(--black);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.istokweb-normal-black-12px-2 {
+  color: var(--black);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.istokweb-normal-black-13px {
+  color: var(--black);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.istokweb-normal-black-13px-2 {
+  color: var(--black);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 400;
+}
+
+:root {
+}
+
+
+/* screen - print-menu-1 */
+
+.print-menu-1 {
+  background-color: var(--white);
+  height: 842px;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 595px;
+}
+
+.print-menu-1 .rectangle-116-RkEbbz {
+  background-color: #01a39e80;
+  height: 146px;
+  left: 439px;
+  position: absolute;
+  top: -3px;
+  transform: rotate(-90deg);
+  width: 212px;
+}
+
+.print-menu-1 .rectangle-117-RkEbbz {
+  background-color: #f8ae3eb2;
+  height: 146px;
+  left: 371px;
+  position: absolute;
+  top: -67px;
+  transform: rotate(-90deg);
+  width: 212px;
+}
+
+.print-menu-1 .bsi-logo-1-2-RkEbbz {
+  background-color: transparent;
+  height: 94px;
+  left: 15px;
+  position: absolute;
+  top: 0px;
+  width: 260px;
+}
+
+.print-menu-1 .group-50-RkEbbz {
+  background-color: transparent;
+  height: 95px;
+  left: 33px;
+  position: absolute;
+  top: 134px;
+  width: 534px;
+}
+
+.print-menu-1 .assalaamualaikum-war-mIdDSK {
+  background-color: transparent;
+  height: auto;
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  width: 530px;
+}
+
+.print-menu-1 .span0-cCvjVE {
+  color: var(--black);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-m);
+  font-style: italic;
+  font-weight: 700;
+}
+
+.print-menu-1 .span1-cCvjVE {
+}
+
+.print-menu-1 .perencana-kartika-usia-20-tahun-mIdDSK {
+  background-color: transparent;
+  color: transparent;
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+  height: auto;
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 61px;
+  width: 472px;
+}
+
+.print-menu-1 .span0-TyWZxc {
+  font-style: normal;
+}
+
+.print-menu-1 .span1-TyWZxc {
+  color: #01a39e;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.print-menu-1 .span2-TyWZxc {
+  font-style: normal;
+}
+
+.print-menu-1 .span3-TyWZxc {
+  font-style: normal;
+}
+
+.print-menu-1 .span4-TyWZxc {
+  color: #01a39e;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.print-menu-1 .mengelola-anggaran-keuangan-RkEbbz {
+  background-color: transparent;
+  color: var(--yellow-orange);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-xxl);
+  font-style: normal;
+  font-weight: 700;
+  height: auto;
+  left: 33px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 96px;
+  width: auto;
+}
+
+.print-menu-1 .group-51-RkEbbz {
+  background-color: transparent;
+  height: 188px;
+  left: 0px;
+  position: absolute;
+  top: 748px;
+  width: 149px;
+}
+
+.print-menu-1 .rectangle-118-S6EQSV {
+  background-color: #01a39e80;
+  height: 86px;
+  left: 34px;
+  position: absolute;
+  top: 29px;
+  transform: rotate(-90deg);
+  width: 144px;
+}
+
+.print-menu-1 .rectangle-119-S6EQSV {
+  background-color: var(--yellow-orange);
+  height: 94px;
+  left: -25px;
+  position: absolute;
+  top: 69px;
+  transform: rotate(-90deg);
+  width: 144px;
+}
+
+.print-menu-1 .pribadi-dan-rahasia-RkEbbz {
+  background-color: transparent;
+  color: var(--black);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-m);
+  font-style: italic;
+  font-weight: 700;
+  height: auto;
+  left: 34px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 816px;
+  width: auto;
+}
+
+.print-menu-1 .wassalaamualaikum-wa-RkEbbz {
+  background-color: transparent;
+  color: var(--black);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-m);
+  font-style: italic;
+  font-weight: 400;
+  height: auto;
+  left: 33px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 755px;
+  width: auto;
+}
+
+.print-menu-1 .hormat-kami-perencana-keuangan-RkEbbz {
+  background-color: transparent;
+  height: auto;
+  left: 437px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 747px;
+  width: auto;
+}
+
+.print-menu-1 .span0-2hjgsW {
+}
+
+.print-menu-1 .span1-2hjgsW {
+  color: var(--black);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-m);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.print-menu-1 .span2-2hjgsW {
+}
+
+.print-menu-1 .group-133-RkEbbz {
+  background-color: transparent;
+  height: 516px;
+  left: 33px;
+  position: absolute;
+  top: 236px;
+  width: 417px;
+}
+
+.print-menu-1 .rectangle-124-4RY1U3 {
+  background-color: var(--yellow-orange);
+  height: 37px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 353px;
+}
+
+.print-menu-1 .rectangle-128-4RY1U3 {
+  background-color: var(--yellow-orange);
+  height: 37px;
+  left: 0px;
+  position: absolute;
+  top: 146px;
+  width: 353px;
+}
+
+.print-menu-1 .rectangle-125-4RY1U3 {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--supernova);
+  height: 37px;
+  left: 0px;
+  position: absolute;
+  top: 37px;
+  width: 353px;
+}
+
+.print-menu-1 .rectangle-129-4RY1U3 {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--supernova);
+  height: 37px;
+  left: 0px;
+  position: absolute;
+  top: 183px;
+  width: 353px;
+}
+
+.print-menu-1 .rectangle-126-4RY1U3 {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--supernova);
+  height: 37px;
+  left: 0px;
+  position: absolute;
+  top: 74px;
+  width: 353px;
+}
+
+.print-menu-1 .rectangle-130-4RY1U3 {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--supernova);
+  height: 37px;
+  left: 0px;
+  position: absolute;
+  top: 220px;
+  width: 353px;
+}
+
+.print-menu-1 .rectangle-132-4RY1U3 {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--supernova);
+  height: 37px;
+  left: 0px;
+  position: absolute;
+  top: 257px;
+  width: 353px;
+}
+
+.print-menu-1 .rectangle-133-4RY1U3 {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--supernova);
+  height: 37px;
+  left: 0px;
+  position: absolute;
+  top: 294px;
+  width: 353px;
+}
+
+.print-menu-1 .rectangle-134-4RY1U3 {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--supernova);
+  height: 37px;
+  left: 0px;
+  position: absolute;
+  top: 331px;
+  width: 353px;
+}
+
+.print-menu-1 .rectangle-135-4RY1U3 {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--supernova);
+  height: 37px;
+  left: 0px;
+  position: absolute;
+  top: 368px;
+  width: 353px;
+}
+
+.print-menu-1 .rectangle-136-4RY1U3 {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--supernova);
+  height: 37px;
+  left: 0px;
+  position: absolute;
+  top: 405px;
+  width: 353px;
+}
+
+.print-menu-1 .rectangle-138-4RY1U3 {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--supernova);
+  height: 37px;
+  left: 0px;
+  position: absolute;
+  top: 479px;
+  width: 353px;
+}
+
+.print-menu-1 .rectangle-137-4RY1U3 {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--supernova);
+  height: 37px;
+  left: 0px;
+  position: absolute;
+  top: 442px;
+  width: 353px;
+}
+
+.print-menu-1 .rectangle-127-4RY1U3 {
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--supernova);
+  height: 37px;
+  left: 0px;
+  position: absolute;
+  top: 110px;
+  width: 353px;
+}
+
+.print-menu-1 .pemasukan-tetap-4RY1U3 {
+  background-color: transparent;
+  height: auto;
+  left: 10px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 47px;
+  width: 355px;
+}
+
+.print-menu-1 .pemasukan-tidak-tetap-4RY1U3 {
+  background-color: transparent;
+  height: auto;
+  left: 10px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 83px;
+  width: 355px;
+}
+
+.print-menu-1 .total-pemasukan-4RY1U3 {
+  background-color: transparent;
+  height: auto;
+  left: 10px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 120px;
+  width: 355px;
+}
+
+.print-menu-1 .total-pengeluaran-4RY1U3 {
+  background-color: transparent;
+  height: auto;
+  left: 10px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 452px;
+  width: 355px;
+}
+
+.print-menu-1 .surplus-4RY1U3 {
+  background-color: transparent;
+  height: auto;
+  left: 10px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 487px;
+  width: 355px;
+}
+
+.print-menu-1 .pemasukan-4RY1U3 {
+  background-color: transparent;
+  color: var(--black);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 700;
+  height: auto;
+  left: 11px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 10px;
+  width: 118px;
+}
+
+.print-menu-1 .pengeluaran-4RY1U3 {
+  background-color: transparent;
+  color: var(--black);
+  font-family: var(--font-family-istok_web);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 700;
+  height: auto;
+  left: 11px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 156px;
+  width: 118px;
+}
+
+.print-menu-1 .pos-zakat-4RY1U3 {
+  background-color: transparent;
+  height: auto;
+  left: 10px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 193px;
+  width: 224px;
+}
+
+.print-menu-1 .pos-iswaf-4RY1U3 {
+  background-color: transparent;
+  height: auto;
+  left: 11px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 230px;
+  width: 249px;
+}
+
+.print-menu-1 .pos-utang-produktif-4RY1U3 {
+  background-color: transparent;
+  height: auto;
+  left: 11px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 266px;
+  width: 249px;
+}
+
+.print-menu-1 .pos-utang-konsumtif-4RY1U3 {
+  background-color: transparent;
+  height: auto;
+  left: 11px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 302px;
+  width: 255px;
+}
+
+.print-menu-1 .rp-0-4RY1U3 {
+  left: 176px;
+  top: 378px;
+  width: 156px;
+}
+
+.print-menu-1 .rp-0-aRJjSa {
+  left: 197px;
+  top: 46px;
+  width: 134px;
+}
+
+.print-menu-1 .rp-0-xbOp49 {
+  left: 197px;
+  top: 82px;
+  width: 134px;
+}
+
+.print-menu-1 .rp-0-zxoxZI {
+  left: 198px;
+  top: 228px;
+  width: 134px;
+}
+
+.print-menu-1 .rp-0-V22klY {
+  left: 197px;
+  top: 119px;
+  width: 134px;
+}
+
+.print-menu-1 .rp-0-ihhvZf {
+  left: 197px;
+  top: 264px;
+  width: 136px;
+}
+
+.print-menu-1 .rp-0-5gSQTp {
+  left: 197px;
+  top: 344px;
+  width: 134px;
+}
+
+.print-menu-1 .rp-0-zx2Hmy {
+  left: 197px;
+  top: 453px;
+  width: 134px;
+}
+
+.print-menu-1 .rp-0-KjppOL {
+  left: 197px;
+  top: 488px;
+  width: 134px;
+}
+
+.print-menu-1 .rp-0-6kuPyN {
+  left: 193px;
+  top: 305px;
+  width: 138px;
+}
+
+.print-menu-1 .rp-0-tHvkeU {
+  left: 197px;
+  top: 417px;
+  width: 134px;
+}
+
+.print-menu-1 .rp-0-7xX0ao {
+  left: 206px;
+  top: 192px;
+  width: 125px;
+}
+
+.print-menu-1 .pos-kontribusi-asuransi-syariah-4RY1U3 {
+  background-color: transparent;
+  height: auto;
+  left: 11px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 342px;
+  width: 255px;
+}
+
+.print-menu-1 .pos-dana-masa-depan-4RY1U3 {
+  background-color: transparent;
+  height: auto;
+  left: 11px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 378px;
+  width: 255px;
+}
+
+.print-menu-1 .pos-belanja-sekarang-4RY1U3 {
+  background-color: transparent;
+  height: auto;
+  left: 11px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 415px;
+  width: 255px;
+}
+
+.print-menu-1 .rp-0 {
+  background-color: transparent;
+  height: auto;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: right;
+}
+@media print {
+  .screen {
+    zoom: 1.25;
+  }
+}
+</style><script id="anime-js-script" src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js" integrity="sha256-98Q574VkbV+PkxXCKSgL6jVq9mrVbS7uCdA+vt0sLS8=" crossorigin="anonymous"></script><script id="imgloaded-js-script" src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script></head><body style="margin: 0;background: #ffffff;"><input type="hidden" id="anPageName" name="page" value="print-menu-1"><div class="container-center-horizontal"><div class="print-menu-1 screen " data-id="662:127"><div class="rectangle-116-RkEbbz" data-id="662:128"></div><div class="rectangle-117-RkEbbz" data-id="662:129"></div><img class="bsi-logo-1-2-RkEbbz" data-id="662:130" src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6554fa2083429d8d932cf256/img/bsi-logo-1-2@2x.png" anima-src="https://cdn.animaapp.com/projects/6554f9fc4d5e51248baa0505/releases/6554fa2083429d8d932cf256/img/bsi-logo-1-2@2x.png" alt="BSI LOGO-1 2"><div class="group-50-RkEbbz" data-id="662:131"><p class="assalaamualaikum-war-mIdDSK istokweb-normal-black-12px-2" data-id="662:132"><span class="span0-cCvjVE">Assalaamu’alaikum Warahmatullahi Wabarakatuh.<br></span><span class="span1-cCvjVE istokweb-normal-black-12px"><br>Anggaran keuangan ini disusun berdasarkan data dan asumsi yang telah anda masukkan. <br><br></span></p><p class="perencana-kartika-usia-20-tahun-mIdDSK" data-id="662:133"><span class="span0-TyWZxc istokweb-normal-black-12px-2">Perencana : </span><span class="span1-TyWZxc" id="1">Kartika<br></span><span class="span2-TyWZxc istokweb-normal-black-12px-2">Usia</span><span class="span3-TyWZxc istokweb-normal-black-12px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </span><span class="span4-TyWZxc" id="2">20 tahun</span></p></div><div class="mengelola-anggaran-keuangan-RkEbbz" data-id="662:134">Mengelola Anggaran Keuangan</div><div class="group-51-RkEbbz" data-id="662:135"><div class="rectangle-118-S6EQSV" data-id="662:136"></div><div class="rectangle-119-S6EQSV" data-id="662:137"></div></div><div class="pribadi-dan-rahasia-RkEbbz" data-id="662:179">PRIBADI DAN RAHASIA</div><div class="wassalaamualaikum-wa-RkEbbz" data-id="662:180">Wassalaamu’alaikum warahmatullahi wabarakatuh.</div><div class="hormat-kami-perencana-keuangan-RkEbbz istokweb-normal-black-12px-2" data-id="662:181"><span class="span0-2hjgsW istokweb-normal-black-12px-2">Hormat Kami<br></span><span class="span1-2hjgsW"><br><br><br></span><span class="span2-2hjgsW istokweb-normal-black-12px-2">Perencana Keuangan</span></div><div class="group-133-RkEbbz" data-id="815:7"><div class="rectangle-124-4RY1U3" data-id="662:140"></div><div class="rectangle-128-4RY1U3" data-id="662:141"></div><div class="rectangle-125-4RY1U3" data-id="662:142"></div><div class="rectangle-129-4RY1U3" data-id="662:143"></div><div class="rectangle-126-4RY1U3" data-id="662:144"></div><div class="rectangle-130-4RY1U3" data-id="662:145"></div><div class="rectangle-132-4RY1U3" data-id="662:146"></div><div class="rectangle-133-4RY1U3" data-id="662:147"></div><div class="rectangle-134-4RY1U3" data-id="662:148"></div><div class="rectangle-135-4RY1U3" data-id="662:149"></div><div class="rectangle-136-4RY1U3" data-id="662:150"></div><div class="rectangle-138-4RY1U3" data-id="815:4"></div><div class="rectangle-137-4RY1U3" data-id="662:151"></div><div class="rectangle-127-4RY1U3" data-id="662:152"></div><div class="pemasukan-tetap-4RY1U3 istokweb-normal-black-13px" data-id="662:153">Pemasukan Tetap</div><div class="pemasukan-tidak-tetap-4RY1U3 istokweb-normal-black-13px" data-id="662:154">Pemasukan Tidak Tetap</div><div class="total-pemasukan-4RY1U3 istokweb-normal-black-13px-2" data-id="662:155">Total Pemasukan</div><div class="total-pengeluaran-4RY1U3 istokweb-normal-black-13px-2" data-id="662:156">Total Pengeluaran</div><div class="surplus-4RY1U3 istokweb-normal-black-13px-2" data-id="815:5">Surplus</div><div class="pemasukan-4RY1U3" data-id="662:157">PEMASUKAN</div><div class="pengeluaran-4RY1U3" data-id="662:158">PENGELUARAN</div><div class="pos-zakat-4RY1U3 istokweb-normal-black-13px" data-id="662:159">Pos Zakat</div><div class="pos-iswaf-4RY1U3 istokweb-normal-black-13px" data-id="662:160">Pos Iswaf</div><div class="pos-utang-produktif-4RY1U3 istokweb-normal-black-13px" data-id="662:161">Pos Utang Produktif</div><div class="pos-utang-konsumtif-4RY1U3 istokweb-normal-black-13px" data-id="662:162">Pos Utang Konsumtif</div><div class="rp-0-4RY1U3 rp-0 istokweb-normal-black-12px" data-id="662:164" id="11">Rp. 0</div><div class="rp-0-aRJjSa rp-0 istokweb-normal-black-12px" data-id="662:166" id="3">Rp. 0</div><div class="rp-0-xbOp49 rp-0 istokweb-normal-black-12px" data-id="662:167" id="4">Rp. 0</div><div class="rp-0-zxoxZI rp-0 istokweb-normal-black-12px" data-id="662:168" id="7">Rp. 0</div><div class="rp-0-V22klY rp-0 istokweb-normal-black-12px-2" data-id="662:169" id="total">Rp. 0</div><div class="rp-0-ihhvZf rp-0 istokweb-normal-black-12px" data-id="662:170" id="8">Rp. 0</div><div class="rp-0-5gSQTp rp-0 istokweb-normal-black-12px" data-id="662:171" id="10">Rp. 0</div><div class="rp-0-zx2Hmy rp-0 istokweb-normal-black-12px-2" data-id="662:172" id="total1">Rp. 0</div><div class="rp-0-KjppOL rp-0 istokweb-normal-black-12px-2" data-id="815:6" id="surplus">Rp. 0</div><div class="rp-0-6kuPyN rp-0 istokweb-normal-black-12px" data-id="662:173" id="9">Rp. 0</div><div class="rp-0-tHvkeU rp-0 istokweb-normal-black-12px" data-id="662:174" id="12">Rp. 0</div><div class="rp-0-7xX0ao rp-0 istokweb-normal-black-12px" data-id="662:175" id="6">Rp. 0</div><div class="pos-kontribusi-asuransi-syariah-4RY1U3 istokweb-normal-black-13px" data-id="662:176">Pos Kontribusi Asuransi Syariah</div><div class="pos-dana-masa-depan-4RY1U3 istokweb-normal-black-13px" data-id="662:177">Pos Dana Masa Depan</div><div class="pos-belanja-sekarang-4RY1U3 istokweb-normal-black-13px" data-id="662:178">Pos Belanja Sekarang</div></div></div></div><script src="launchpad-js/launchpad-banner.js" async=""></script><script defer="" src="https://animaapp.s3.amazonaws.com/static/restart-btn.min.js"></script><div id="t_preload_links"></div></body></html><script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.js"></script>
+ <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const element = document.getElementById('screen');
+    const options = {
+      margin: 0,
+      filename: 'document.pdf',
+      image: { type: 'jpeg',quality: 5 },
+      html2canvas: { scale: 5 },
+      jsPDF: { unit: 'cm', format: [ 22/1.25 , 28/1.25] , orientation: 'portrait' }
+    };
+
+    
+    //html2pdf(element,options);
+
+
+  });
+ 
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      // Trigger print preview when the page is loaded
+      window.print();
+  });
+</script>
+<script>
+const currentUrl = window.location.href;
+
+function getVar(name) {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  return urlParams.get(name);
+}
+let data = ["1","2","3","4","5","6","7","8","9","10","11","12","total","total1","surplus"];
+for(let i = 0;i<data.length;i++){
+  console.log(getVar(data[i]));
+  let el = (i==0||i==1)? ((i==0)?getVar(data[i])+'<br>' : getVar(data[i])) : 'Rp.'+ parseFloat(getVar(data[i])).toLocaleString('id');
+  $(('#'+data[i])).html(el);
+}
+
+</script>
